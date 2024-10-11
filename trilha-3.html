@@ -1,0 +1,1123 @@
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
+<!--  Last Published: Sat Mar 19 2022 14:55:57 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="60915f334482b06d928f1bc5" data-wf-site="60915f334482b04c3b8f1bb7">
+<head>
+  <meta charset="utf-8">
+  <title>Trilha 3</title>
+  <meta content="Trilha 3" property="og:title">
+  <meta content="Trilha 3" property="twitter:title">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/sthem-exemplo.webflow.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Oswald:200,300,400,500,600,700","Roboto Slab:100,200,300,regular,500,600,700,800,900"]  }});</script>
+  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <style>
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 6px;
+}
+*::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(172, 215, 128, 0.5), rgba(161, 165, 219, 0.5) 25%, rgba(198, 93, 88, 0.5) 50%, rgba(252, 197, 107, 0.5) 75%, rgba(255, 226, 102, 0.5));
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(172, 215, 128, 0.7), rgba(161, 165, 219, 0.7) 25%, rgba(198, 93, 88, 0.7) 50%, rgba(252, 197, 107, 0.5) 75%, rgba(255, 226, 102, 0.7));
+}
+*::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(180deg, rgba(172, 215, 128, 1), rgba(161, 165, 219, 1) 25%, rgba(198, 93, 88, 1) 50%, rgba(252, 197, 107, 1) 75%, rgba(255, 226, 102, 1));
+}
+</style>
+  <link rel="stylesheet" href="https://s3.amazonaws.com/assets.b42.com.br/player/mediaelementplayer.css">
+  <link rel="stylesheet" href="https://s3.amazonaws.com/assets.b42.com.br/player/plugins/speed/speed.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript">
+function strReplace(haystack, needle, replacement) {
+    var temp = haystack.split(needle);
+    return temp.join(replacement);
+}
+ $(document).ready(function(){
+    var div = '#content',
+        contador = 0,
+        obj_tratados = [
+                        div,
+                        div + ' p',
+                       ],
+        reset_fonte = [],
+        reset_linha = [];
+    setDefaultZoom(obj_tratados, reset_fonte, reset_linha, contador);
+    $('#a_mais,#a_menos,#a_reset').on('click', function() {
+       var id = $(this).attr('id');
+        var min = 6;
+        var max = 150;
+        for (var i in obj_tratados) {
+            var tratados = $(obj_tratados[i]);
+            var tamanho_fonte = strReplace(tratados.css('fontSize'), 'px', '');
+            var tamanho_entrelinha = strReplace(tratados.css('lineHeight'), 'px', '');
+            switch (id) {
+                case 'a_mais':
+                    if (tamanho_fonte <= max) {
+                        tamanho_fonte++;
+                         // tamanho entrelinha aumento
+                         tamanho_entrelinha = (tamanho_fonte * 1.8);
+                         tamanho_entrelinha++;
+                        contador++;
+                    }
+                    break;
+                case 'a_menos':
+                    if (tamanho_fonte >= min) {
+                        tamanho_fonte--;
+                       // tamanho entrelinha redução;
+                        var val = tamanho_entrelinha - (tamanho_entrelinha * 3 / 100);
+                       // tamanho_entrelinha = arredondarValor(val);
+                       tamanho_entrelinha = (tamanho_fonte * 1.8);
+                        tamanho_entrelinha--;
+                        contador++;
+                    }
+                    break;
+                case 'a_reset':
+                default:
+                    // resetar 
+                    tamanho_fonte = reset_fonte[i];
+                    tamanho_entrelinha = reset_linha[i];
+                    break;
+            }
+            tratados.css({'fontSize': tamanho_fonte + 'px', 'lineHeight': tamanho_entrelinha + 'px'});
+        }
+       //cancel a click event
+        return false;
+    });
+    function setDefaultZoom(obj_tratados, reset_fonte, reset_linha, contador) {
+        for (var i in obj_tratados) {
+            var tratados = $(obj_tratados[i]);
+            if (contador == 0) {
+                reset_fonte[i] = strReplace(tratados.css('fontSize'), 'px', '');
+                reset_linha[i] = strReplace(tratados.css('lineHeight'), 'px', '');
+            }
+        }
+    }
+});
+</script>
+</head>
+<body class="body">
+  <div class="menu">
+    <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8915" class="d-82-menu-trigger-wrapper">
+      <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8916" class="d-82-trigger-line"></div>
+      <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8917" class="d-82-trigger-line"></div>
+      <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8918" class="d-82-trigger-line"></div>
+    </div>
+    <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8919" class="d-82-menu-wrapper">
+      <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c891a" class="d-82-bg-scale-wrapper"></div>
+      <div class="d-82-image-wrapper">
+        <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c891c" class="d-82-image"></div>
+      </div>
+      <div class="d-82-menu-right-wrapper">
+        <nav class="d-82-menu-item-wrapper">
+          <a data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c891f" href="#" class="d-82-menu-item inativo w-inline-block">
+            <div class="d-82-menu-item-text">home</div>
+            <div class="d-82-menu-item-underline"></div>
+          </a>
+          <a data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8923" href="trilha1.html" class="d-82-menu-item w-inline-block">
+            <div class="d-82-menu-item-text">Trilha 1</div>
+            <div class="d-82-menu-item-underline"></div>
+          </a>
+          <a data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8927" href="#" class="d-82-menu-item inativo w-inline-block">
+            <div class="d-82-menu-item-text">Trilha 2</div>
+            <div class="d-82-menu-item-underline"></div>
+          </a>
+          <a data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c892b" href="#" class="d-82-menu-item inativo w-inline-block">
+            <div class="d-82-menu-item-text">Trilha 3</div>
+            <div class="d-82-menu-item-underline"></div>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="acess-content-2">
+    <div class="acess-modal-2">
+      <div class="text-acess-2">
+        <div id="controle_zoom" class="font-size-ajuste espaco">
+          <a id="a_mais" title="aumentar fonte" href="#" class="btn-font-2 w-button">A+</a>
+          <a id="a_menos" title="diminuir fonte" href="#" class="btn-font-2 w-button">A-</a>
+          <a id="a_reset" title="resetar fonte" href="#" class="btn-font-2 w-button">A0</a>
+        </div>
+        <div class="font-size-ajuste">
+          <div class="w-embed"></div>
+          <div class="html-embed-2 w-embed">
+            <style>
+.texto-acessivel{
+    /*padding-left:25px;
+    padding-top: 10px;
+    padding-bottom: 15px;*/
+    /*float:right !important;*/
+  }
+.barra-de-acessibilidade{
+    min-height: 50px !important; 
+    overflow: hidden;  
+    position: fixed;  left: 0; top:0; 
+    width: 100%; 
+    display: block; 
+    z-index: 99999; 
+    padding-top: 12px !important;
+    padding-left: 20px !important;
+    padding-bottom: 10px !important;
+    background-color: #275488 !important;
+  }
+  /*.btn-acessivel{
+    height: 50px; 
+    width: 50px;
+    padding: 5px;
+    overflow: hidden;  
+    background-color: #0077bd;  
+    position: fixed;  
+    left: 0; 
+    top: 35%;
+    display: block; 
+    z-index: 9999999999; 
+  } 
+  .btn-acessivel:hover{
+      background-color: #0f3752;  
+  }*/
+  audio{
+  margin-left: 18px;
+  padding-top: 7px;
+  height: 30px;
+  width: 95%;
+}
+.audio-alinhamento{
+ margin-top: 10px;
+}
+.img-acessibilidade{
+  width: 22px;
+  height: 22px;
+   margin-left: 15px;
+   margin-right: 5px;
+}
+.img-acessibilidade-audio{
+  width: 27px;
+  height: 27px;
+  margin-left: 15px;
+  margin-right: 5px;
+  padding-bottom: -25px;
+}
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+ /* margin-left: 20px;*/
+  margin-top: 5px;
+}
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 16px;
+  width: 40px;
+  height: 20px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+.toggle-switch:before, .toggle-switch:after {
+  content: "";
+}
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: left 0.25s;
+}
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.toggle-checkbox:checked + .toggle-switch {
+  background: #263238;
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 25px;
+}
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+.toggle-label {
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
+  color: #fff;
+  font-size: 0.9em;
+}
+.atalho{
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+  .w-webflow-badge {
+  display: none !important;
+  }
+  .audio-div{
+    height: 40px; 
+    width: 100%;
+    overflow: hidden;  
+    position: fixed;  left: 0; bottom:0; 
+    display: block; z-index: 999999; 
+    background-color: #08001F;
+    display: none;
+  }
+</style>
+            <label class="toggle leituraNoturna">
+              <img src="images/noturno.svg" width="140" alt="leitura noturna" class="img-acessibilidade">
+              <input id="mudarTema" class="toggle-checkbox" type="checkbox">
+              <div class="toggle-switch"></div>
+              <span class="toggle-label"> </span>
+            </label>
+            <label class="toggle altoContraste">
+              <img src="images/constrast.svg" width="140" alt="leitura alto contraste " class="img-acessibilidade">
+              <input id="mudarAltoContraste" class="toggle-checkbox" type="checkbox">
+              <div class="toggle-switch"></div>
+              <span class="toggle-label"> </span>
+            </label>
+          </div>
+        </div>
+        <a title="fechar acessibilidade" data-w-id="deb3c621-0f46-34de-4187-1d430e8bccd3" href="#" class="btt-acess-fechar-2 w-button">X</a>
+      </div>
+    </div>
+    <a accesskey="4" title="abrir acessibilidade" data-w-id="deb3c621-0f46-34de-4187-1d430e8bccd5" href="#" class="btn-acess-2 w-inline-block">
+      <div class="acess-logo"></div>
+    </a>
+  </div>
+  <div data-poster-url="https://uploads-ssl.webflow.com/5f5a1cef604dc322f5a6fc3a/5f5b6c27ff27576d7abc4a89_bg-sthem-competeniasL-poster-00001.jpg" data-video-urls="videos/bg-sthem-competeniasL-transcode.mp4,videos/bg-sthem-competeniasL-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="videotrilha-bg-03 w-background-video w-background-video-atom"><video autoplay="" loop="" style="background-image:url(&quot;https://uploads-ssl.webflow.com/5f5a1cef604dc322f5a6fc3a/5f5b6c27ff27576d7abc4a89_bg-sthem-competeniasL-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+      <source src="videos/bg-sthem-competeniasL-transcode.mp4" data-wf-ignore="true">
+      <source src="videos/bg-sthem-competeniasL-transcode.webm" data-wf-ignore="true">
+    </video><img src="images/tertium-titulo.png" loading="lazy" style="opacity:0;-webkit-transform:translate3d(0, 0, 0) scale3d(0.2, 0.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0.2, 0.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0.2, 0.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0.2, 0.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" data-w-id="c7e69bde-4880-a7e2-ba31-f8511f7d41c6" srcset="images/tertium-titulo-p-500.png 500w, images/tertium-titulo-p-800.png 800w, images/tertium-titulo-p-1080.png 1080w, images/tertium-titulo.png 1276w" sizes="40px" alt="" class="image-34">
+    <a href="#inicio-trilha1" data-w-id="3f45c24f-4216-60eb-2cd3-9c753766bb2d" style="-webkit-transform:translate3d(0, -100PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -100PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -100PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -100PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="seta-scrool-trilhas w-inline-block"><img src="images/scrool.svg" width="80" alt="inicie sua jornada" class="image-2"></a>
+  </div>
+  <div id="inicio-trilha1" class="section wf-section"><img src="images/logo-marca-completa.svg" width="219" alt="" class="image"></div>
+  <div id="audiobook-ancora"></div>
+  <div id="audiolivro" class="podcast-trilha3">
+    <div class="container-13 w-container">
+      <h1 class="titulo-curso"><strong class="bold-text t3">Avaliações no <br>Ensino Remoto</strong></h1>
+      <div class="podcast-player">
+        <div class="player-b42 w-embed">
+          <div class="media-wrapper audio-player">
+            <audio preload="none" controls="" style="max-width:100%; display: none;">
+              <source src="audios/podcast-T3.mp3" type="audio/mp3">
+            </audio>
+          </div>
+        </div>
+      </div><img src="images/cllique-ouvir-podcast.svg" loading="lazy" width="200" alt="" class="image-35">
+    </div>
+  </div>
+  <div id="inicio" class="secao-autores wf-section">
+    <div class="container-apresentacao w-container">
+      <div class="apresentacao-div autores">
+        <div class="div-block-16 line02"></div>
+        <div class="div-block-21"><img src="images/unissaum.png" width="323" alt="" class="logo-sthem-modelo2"></div><img src="images/autores-.svg" loading="lazy" width="300" alt="" class="image-36">
+        <div class="autores-coluna w-row">
+          <div class="w-col w-col-4"><img src="images/t3-prof1.png" alt="foto autor" width="200" class="imagem-autores"></div>
+          <div class="column-6 w-col w-col-8">
+            <p class="nome-participantes">Ricardo Miranda Martins</p>
+            <p>Doutor e Mestre em Matemática pela Universidade Estadual de Campinas (Unicamp); e Bacharel em Matemática pela Universidade Federal de Viçosa (2006). Em 2016, obteve a livre-docência em Geometria/Topologia pela Unicamp. Atualmente, é professor associado do Instituto de Matemática, Estatística e Computação Científica (IMECC ) da Unicamp. Sua área de pesquisa é Teoria Qualitativa das Equações Diferenciais, Sistemas Dinâmicos Reversíveis-Equivariantes e Equações Diferenciais Suaves por Partes.</p>
+            <p class="link-site">Lattes: <a href="http://lattes.cnpq.br/7260833760482439" target="_blank" class="link-2">Acesse o Lattes</a>
+            </p>
+          </div>
+        </div>
+        <div class="autores-coluna w-row">
+          <div class="w-col w-col-4"><img src="images/t3-prof2.png" width="200" alt="foto autor" class="imagem-autores"></div>
+          <div class="column-6 w-col w-col-8">
+            <p class="nome-participantes">Carlos Renato Zacharias</p>
+            <p>Doutor em Física pelo Instituto Tecnológico de Aeronáutica (ITA); Mestre em Física pela Universidade Estadual de Campinas (Unicamp); e Bacharel em Física pela mesma instituição. É professor livre-docente (adjunto) da Universidade Estadual Paulista (Unesp). Desenvolveu pesquisas em Simulação Computacional, Biofísica e Altas Diluições. Trabalha, desde 2017, com Metodologias Ativas de Ensino, em especial Sala de Aula Invertida e Gamificação, no Ensino Superior.</p>
+            <p class="link-site">Lattes: <a href="http://lattes.cnpq.br/9733039885138526" target="_blank" class="link-2">Acesse o Lattes</a>
+            </p>
+          </div>
+        </div>
+        <div class="div-block-16 line02"></div>
+      </div>
+    </div>
+  </div>
+  <div id="content" class="conteudo">
+    <div id="inicio" class="introducao-trilha3 wf-section">
+      <div class="container-apresentacao w-container">
+        <div class="caixa-modelo2">
+          <div class="div-block line02"></div><img src="images/logo-marca-completa.svg" width="273" alt="" class="logo-sthem-modelo2">
+          <div class="video-div">
+            <div style="padding-top:56.17021276595745%" class="video-2 w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FFSd9wAhbDnY%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DFSd9wAhbDnY&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FFSd9wAhbDnY%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></div><img src="images/player-click-video.svg" loading="lazy" width="180" alt="" class="image-37">
+          </div>
+          <div class="texto apresentacao w-richtext">
+            <h4><strong>Apresentação</strong></h4>
+            <p>Parabéns, participante! Você chegou a Tertium, o mundo mais frio da galáxia! Após aprender a navegar pelo mundo digital e entender a importância da interatividade e da colaboração, esta é a hora de falar sobre avaliações.</p>
+            <p>O processo avaliativo não tem metodologia única, consensual, válida para todos os casos. Entretanto, é possível organizá-lo em categorias, o que ajuda a formatar uma boa solução, mantendo-se as particularidades de cada área do conhecimento ou nível de ensino. Assim, serão exploradas, nesta trilha, as três categorias clássicas de avaliação, a saber: <strong>diagnóstica</strong>, <strong>formativa</strong> e <strong>somativa</strong>. Dividir um processo em categorias ou fases torna-o mais didático, fácil de compreender e de implementar.</p>
+            <p>É necessário ter em mente que o aluno não é um ente padronizado, tampouco isolado, sem cultura própria, mas sim um complexo sistema com necessidades e habilidades diversas. É por isso que não se deve falar de aprendizagem e avaliação sem considerar, também, as habilidades interpessoais.</p>
+            <p>Além disso, você verá que a avaliação deve ser um processo contínuo, com objetivos claros. Aprender e avaliar devem ser ações conjuntas, harmônicas. Para uma aprendizagem significativa e de longa duração, a avaliação continuada é essencial.</p>
+            <p>A partir de agora, você navegará por todos esses temas. A proposta inicial é que você se liberte de algumas crenças limitantes, como a forma de avaliar no ensino presencial. Seus alunos merecem!</p>
+            <p>Bons estudos!<br></p>
+          </div>
+          <div class="div-block line02"></div>
+        </div>
+      </div>
+    </div>
+    <div id="inicio-trilha1" class="section wf-section"><img src="images/logo-marca-completa.svg" width="219" alt="" class="image"></div>
+    <div id="sumario" class="section-sumario-trilha3 wf-section">
+      <div class="container-14 w-container">
+        <div class="div-sumario">
+          <h1 class="titulo-sum-rio"><strong>Sumário</strong></h1>
+          <div class="div-block-22">
+            <a href="#t3-tp01" class="topicos">Tópico 1 - Libertando-se das algemas do ensino presencial</a>
+            <a href="#t3-tp02" class="topicos">Tópico 2 -<strong> </strong>O ensino remoto e as avaliações</a>
+            <a href="#t3-tp03" class="topicos">Tópico 3 -<strong> </strong>Muito além de uma “prova com consulta”</a>
+            <a href="#" class="topicos">Referências</a>
+            <a href="#" class="topicos">Recapitulando</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="audiolivro" class="audiobook-content">
+      <div class="w-container"><img src="images/audiobook.svg" width="400" alt="" class="image-16">
+        <div class="podcast-player">
+          <div class="player-b42 w-embed">
+            <div class="media-wrapper audio-player">
+              <audio preload="none" controls="" style="max-width:100%; display: none;">
+                <source src="audios/AB-T3.mp3" type="audio/mp3">
+              </audio>
+            </div>
+          </div>
+        </div><img src="images/clique-audiobook.svg" loading="lazy" width="200" alt="" class="image-35">
+      </div>
+    </div>
+    <div id="t3-tp01" class="secao-s wf-section">
+      <div class="capa-topico">
+        <div class="container-5 w-container">
+          <div class="div-block-8">
+            <p class="numero-topico">TÓPICO 1</p>
+          </div>
+          <h1 class="titulo-topico">Libertando-se das algemas do ensino presencial</h1>
+        </div>
+      </div>
+      <div class="w-container">
+        <div class="video-div">
+          <div style="padding-top:56.17021276595745%" class="video-2 w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F2MNEYg5sghM%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D2MNEYg5sghM&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F2MNEYg5sghM%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></div><img src="images/player-click-video.svg" loading="lazy" width="180" alt="" class="image-37">
+        </div>
+        <div class="imagem-ilustrativa"><img src="images/foto-01-100.jpg" loading="lazy" sizes="100vw" srcset="images/foto-01-100-p-500.jpeg 500w, images/foto-01-100-p-800.jpeg 800w, images/foto-01-100-p-1080.jpeg 1080w, images/foto-01-100-p-1600.jpeg 1600w, images/foto-01-100.jpg 1920w" alt="" class="foto-ilustrativa"></div>
+        <div class="texto sem-espaco-top w-richtext">
+          <h2><strong><em>Hall</em> de Entrada</strong></h2>
+          <p>Boas-vindas! Você está no Palácio das Avaliações Remotas de Tertium. Sinta-se à vontade para passear pelos jardins e pelas trilhas, por meio das quais você terá acesso aos Salões de Avaliação, onde poderá vivenciar e aprender mais sobre avaliações diagnósticas, formativas e somativas, e aos Pátios das Avaliações Continuadas e das Habilidades Comportamentais. Tome cuidado para não congelar!</p>
+          <p>Antes de iniciar esta aventura, você precisará refletir sobre seus conceitos, métodos e expectativas. A primeira fase é a Trilha das Reflexões, cujo trajeto o(a) convida a repensar sua prática docente, em especial as atividades de avaliação. Posteriormente, você chegará ao Jardim Central, no qual novas possibilidades serão abertas.</p>
+        </div>
+        <div class="imagem-ilustrativa"><img src="images/foto-02-t3-100.jpg" loading="lazy" sizes="100vw" srcset="images/foto-02-t3-100-p-800.jpeg 800w, images/foto-02-t3-100-p-1080.jpeg 1080w, images/foto-02-t3-100-p-1600.jpeg 1600w, images/foto-02-t3-100.jpg 1924w" alt="" class="foto-ilustrativa"></div>
+        <div class="texto sem-espaco-top w-richtext">
+          <h2><strong>Trilha das Reflexões</strong>  </h2>
+          <blockquote>Espelho, espelho meu, quem neste mundo é mais sábio(a) do que eu?</blockquote>
+          <h3><strong>Como avaliar em tempos de ensino remoto?</strong> </h3>
+          <p>Muitos professores sofrem com este problema, preocupados com a possibilidade de “cola”, afinal, como “vigiar” dezenas de alunos espalhados em suas casas, conectados à internet? Tornar a prova mais difícil ou extensa, reduzir o tempo de execução e propor questões diferentes para cada aluno são as primeiras propostas. Mas será que resolvem algo? Ainda mais: será que a “cola” é, de fato, o problema?</p>
+          <p>O acesso à informação é cada vez mais amplo e irrestrito. Ter informação não significa ter conhecimento nem ser capaz de fazer correlações, ou saber como resolver problemas. Na vida de qualquer profissional, a consulta a fontes de informação é tarefa corriqueira. <strong>Destacam-se os que sabem selecionar, interpretar e organizar tais informações, transformando-as em soluções, criando novos modelos, produtos ou inovações</strong>. Então, por que não avaliar os estudantes em tais habilidades?</p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t2-fig01.svg" width="890" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 1 - Competências para o século 21 | Fonte: adaptada de Gomes (2012, <em>on-line</em>).</p>
+        </div>
+        <div class="box-trilha1">
+          <div class="box-conteudo-trilha1"><img src="images/saiba-icone-trilha01.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>As práticas avaliativas devem estar sintonizadas com o desenvolvimento de profissionais com as habilidades comportamentais e técnicas valorizadas atualmente. Saiba mais sobre as competências mais valorizadas no século 21 a partir da leitura do texto disponível a seguir.</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://edukatu.org.br/cats/2/posts/160" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <p>Se consultar fontes de informação é uma prática essencial, não constituindo-se em “cola”, mas sendo o plágio uma prática condenável, como aplicar uma avaliação que consiga, ao mesmo tempo, medir o conhecimento individual que o aluno obteve ao longo da disciplina, bem como suas competências inter e intrapessoais?</p>
+          <p>Como seria uma avaliação ideal? Como suporte conceitual, é possível utilizar a Taxonomia de Bloom, apresentada em 1956 e revisada em 2001. Essa taxonomia estratifica os resultados de aprendizagem esperados em seis categorias: <strong>lembrar</strong>, <strong>entender</strong>, <strong>aplicar</strong>, <strong>analisar</strong>, <strong>avaliar</strong> e <strong>criar</strong>. Em cada uma delas, um conjunto de verbos de ação indica como trabalhar as habilidades, conforme indicado no quadro a seguir.</p>
+        </div>
+        <div data-nao-quebra="1" class="tabela">
+          <div class="tabela-embed w-embed">
+            <style>
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid #e1e9e9;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 14px;
+    text-align: left;
+}
+table tr:nth-child(even) {
+    background-color: #f3fdff;
+}
+table tr:nth-child(odd) {
+   background-color: #e6f5ff;
+}
+table th {
+    background-color: #263238;
+    color: white;
+}
+</style>
+            <!--  inserir tabela a partir daqui  -->
+            <table>
+              <tr>
+                <th>Lembrar</th>
+                <th>Entender</th>
+                <th>Aplicar</th>
+                <th>Analisar</th>
+                <th>Avaliar</th>
+                <th>Criar</th>
+              </tr>
+              <tr>
+                <td>Reconhecer</td>
+                <td>Interpretar</td>
+                <td>Executar</td>
+                <td>Diferenciar</td>
+                <td>Julgar</td>
+                <td>Gerar</td>
+              </tr>
+              <tr>
+                <td>Listar</td>
+                <td>Explicar</td>
+                <td>Implementar</td>
+                <td>Organizar</td>
+                <td>Criticar</td>
+                <td>Planejar</td>
+              </tr>
+              <tr>
+                <td>Definir</td>
+                <td>Classificar</td>
+                <td>Utilizar</td>
+                <td>Comparar</td>
+                <td>Justificar</td>
+                <td>Inventar</td>
+              </tr>
+              <tr>
+                <td>Nomear</td>
+                <td>Resumir</td>
+                <td>Construir</td>
+                <td>Classificar</td>
+                <td>Recomendar</td>
+                <td>Produzir</td>
+              </tr>
+            </table>
+          </div>
+          <p class="legenda-fonte">Quadro 1 - Fases da Taxonomia de Bloom, revisadas por Krathwohl (2001) | Fonte: os autores.</p>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <p>A fim de facilitar a visualização, observe a pirâmide a seguir, que é apenas uma maneira gráfica de mostrar o quadro com a ideia de hierarquia das categorias. Lembre-se: o objetivo sempre é chegar no topo da pirâmide.</p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t2-fig02_1.svg" width="890" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 2 - Pirâmide com as fases revisadas da Taxonomia de Bloom | Fonte: adaptada de Marques (2007 apud Lopes <em>et al</em>., 2018, p. 140).</p>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <p>Repare que é necessário deixar de lado as avaliações baseadas em memorização, modelos padronizados e repetitivos, questões clássicas ou cujas respostas e/ou soluções possam ser facilmente encontradas na internet. Este tipo de questão pode ser cobrado, mas, certamente, deverá ter peso menor na nota do aluno. Por exemplo, se uma prova usa vários dos verbos mencionados anteriormente nas questões, decerto exigirá mais dos estudantes. Uma questão que pede para &quot;interpretar&quot; algo, dependerá menos da memória e mais da capacidade de o aluno organizar seu pensamento, que é uma habilidade desejada. Se for solicitada uma “comparação”, ele precisará ter pensamento crítico, outra habilidade muito requerida atualmente.</p>
+          <p>Questões de raciocínio, resolução de problemas, de respostas abertas ou multifacetadas, que exigem interpretação, análise, julgamento e criação devem ser privilegiadas. Assim, mesmo que as respostas possam ser encontradas em algum material, deverão ser reconstruídas pelo aluno. Para o professor, isso significa um grande esforço, que pode ser aliviado com um trabalho colaborativo.</p>
+        </div>
+        <div class="box-trilha1">
+          <div class="box-conteudo-trilha1"><img src="images/saiba-icone-trilha01.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Confira o relatório “Educação para a cidadania global: preparando alunos para os desafios do século XXI”, da Organização das Nações Unidas para a Educação, a Ciência e Cultura (Unesco).</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://unesdoc.unesco.org/ark:/48223/pf0000234311" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <p>Reflita, agora, sobre sua prática com avaliações e tente libertar-se das algemas do ensino presencial. Para ajudá-lo(a) neste processo, continue a caminhada pela Trilha das Reflexões, atento às dúvidas e aos conceitos, até chegar ao Jardim Central, no qual terá acesso a diferentes modalidades de avaliação.</p>
+          <h3><strong>Agora é com você!</strong></h3>
+          <p>Você, professor(a), acha que está avaliando bem seus alunos? Poderia melhorar em algum aspecto? Existem muitas questões envolvidas, que passam tanto por domínio de tecnologias, quanto pelo tempo disponível para dedicar-se à produção e correção de avaliações.</p>
+          <p>Reflita um pouco sobre sua prática atual. Como você elabora suas avaliações?</p>
+          <ul role="list">
+            <li>Você tem um banco de questões que aplica ano após ano?</li>
+            <li>Você tem um <em>template</em> de questões e muda apenas os números, mas o raciocínio para resolução é sempre o mesmo?</li>
+            <li>Você adota perguntas de concursos e exames presenciais (por exemplo: Enem, vestibulares etc.)?</li>
+            <li>Você permite o uso de tecnologias durante as avaliações?</li>
+            <li>Você evita questões de respostas abertas, pois dão muito trabalho para corrigir?</li>
+            <li>Você evita questões de opinião, por acreditar que estas não podem ser corrigidas?</li>
+            <li>Você acha que a consulta a fontes de informações favorece avaliações baseadas em interpretação, aplicação, análise e inovação?</li>
+            <li>Você prepara seus alunos para repetir padrões (memorização) ou para criar novos modelos, raciocínios e soluções?</li>
+            <li>Seus alunos sabem como serão avaliados? Ou você gosta de aplicar surpresas?</li>
+            <li>Na elaboração de uma avaliação, você considera o trabalho que terá para corrigi-la?</li>
+          </ul>
+          <p>Que tal compartilhar suas inquietações com outros professores? A seguir, você encontrará um espaço dedicado para iniciar uma construção colaborativa: o fórum. Você verá que há muitas inquietações em comum com outros professores!</p>
+        </div>
+      </div>
+    </div>
+    <div id="audiolivro" class="forum-trilha3">
+      <div class="container-13 w-container">
+        <h1 class="titulo-curso t2"><strong class="bold-text t3">fórum</strong></h1>
+        <div class="caixa-modelo2">
+          <div class="div-block line02"></div>
+          <div class="texto apresentacao w-richtext">
+            <p><br>‍</p>
+            <p>Todos foram pegos de surpresa pelo ensino remoto. Em questão de semanas, houve a necessidade de reinventar práticas didáticas, redefinir conceitos, aprender novos métodos e tecnologias. A sala de aula e a figura do professor foram ressignificadas. Foi difícil, deu muito trabalho, mas, ao final, todos estão bem mais conscientes e preparados para cumprir a missão como educador. Então, o que acha de compartilhar o que aprendeu nesse período, além de experiências, sugestões, modelos e dicas sobre tecnologias e outros assuntos? Todos saem ganhando!</p>
+            <p>#boracompartilhar?!<br></p>
+          </div>
+          <a data-w-id="2969a265-26a5-fdfd-8722-e02f6e76f3ba" href="https://sthembrasil.instructure.com/courses/164/discussion_topics/314" target="_blank" class="btn-forum w-button">acessar fórum</a>
+          <div class="div-block line02"></div>
+        </div>
+      </div>
+    </div>
+    <div id="t3-tp02" class="secao-s wf-section">
+      <div class="capa-topico">
+        <div class="container-5 w-container">
+          <div class="div-block-8">
+            <p class="numero-topico">TÓPICO 2</p>
+          </div>
+          <h1 class="titulo-topico">O ensino remoto e as avaliações</h1>
+        </div>
+      </div>
+      <div class="w-container">
+        <div class="video-div">
+          <div style="padding-top:56.17021276595745%" class="video-2 w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FXA_aNI-sDiQ%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DXA_aNI-sDiQ&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FXA_aNI-sDiQ%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></div><img src="images/player-click-video.svg" loading="lazy" width="180" alt="" class="image-37">
+        </div>
+        <div class="imagem-ilustrativa"><img src="images/foto-033-t3-100.jpg" loading="lazy" sizes="100vw" srcset="images/foto-033-t3-100-p-800.jpeg 800w, images/foto-033-t3-100-p-1600.jpeg 1600w, images/foto-033-t3-100.jpg 1922w" alt="" class="foto-ilustrativa"></div>
+        <div class="texto sem-espaco-top w-richtext">
+          <h2><strong>Salão das Avaliações Diagnósticas</strong></h2>
+          <blockquote>Conhece-te a ti mesmo. (Sócrates)</blockquote>
+          <p>Avaliações diagnósticas permitem que o docente perceba ou mapeie o conhecimento já adquirido pelos alunos sobre determinado conteúdo e formate uma aula mais adequada, com objetivos e métodos claros. Iniciar a apresentação/discussão de um tema a partir das expectativas, dificuldades ou dos limites dos educandos é uma maneira de aproximá-los dos colegas, do professor e do conhecimento. Se o estudante percebe que a aula é adequada para ele, as chances de engajamento são maiores.</p>
+          <p>Além disso, esse tipo de avaliação também serve para que o estudante se autoavalie, percebendo suas limitações e qualidades, tornando-se <strong>corresponsável</strong> no processo de aprendizagem. Não tem o objetivo de classificá-lo, mas de mapear seu conhecimento, detectando, inclusive, a heterogeneidade entre um grupo de alunos, o que pode fomentar uma metodologia colaborativa de ensino, uma vez que a colaboração pode reduzir as diferenças entre os estudantes. Também podem ser usadas como desafios para despertar novas dúvidas ou atiçar a curiosidade pelo conhecimento, além dos limites de cada aluno. </p>
+          <p>As avaliações diagnósticas funcionam muito bem com metodologias baseadas na <a href="https://www.semesp.org.br/uc/curso/programa-ead-sthem-brasil-de-metodologias-ativas-flipped-classrom/" target="_blank"><strong>Sala de Aula Invertida</strong></a> e podem ser implementadas de maneira lúdica, gamificada, tornando o início da aula mais leve e divertido. Quando aplicadas no meio das aulas, servem para “quebrar” o ritmo tradicional ou previsível da aula. Geralmente, não têm grande peso na composição da nota final da disciplina e são implementadas por questões de resposta rápida, que podem ser de múltipla escolha, ranqueadas, gerar uma nuvem de palavras, entre outras possibilidades.</p>
+          <p>Dois aplicativos com versões gratuitas para avaliações diagnósticas e coletivas são o <a href="https://kahoot.com/" target="_blank"><strong>Kahoot</strong> </a>e o <a href="https://www.mentimeter.com/" target="_blank"><strong>Mentimeter</strong></a>, que, conforme o conteúdo da Trilha 2, são aplicados de maneira síncrona e os alunos podem observar todas respostas surgindo na tela. Essas ferramentas podem ser configuradas de forma a permitir várias respostas por tempo limitado, o que retém a atenção do aluno e estimula sua participação ativa. </p>
+        </div>
+        <div class="box-trilha1">
+          <div class="box-conteudo-trilha1"><img src="images/saiba-icone-trilha01.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Como avaliação diagnóstica coletiva, o que poderia ser perguntado ao estudante utilizando o Kahoot! ou o Mentimeter? Seguem algumas sugestões:</p>
+                      <ul role="list">
+                        <li>&quot;Qual a sua expectativa para a aula de hoje?&quot;</li>
+                        <li>&quot;Cite uma aplicação do cotidiano relacionada ao tema da aula.&quot;</li>
+                        <li>&quot;Como tornar esta aula mais interessante?&quot;</li>
+                        <li>&quot;O que o motivaria a estudar este tema?&quot;</li>
+                        <li>&quot;Qual dos fatores citados você acha que foi mais importante para que o fenômeno acontecesse?&quot;</li>
+                        <li>&quot;Quais as limitações da teoria apresentada?&quot;</li>
+                        <li>&quot;Quais as consequências da implantação de tal lei/regra/restrição?&quot;</li>
+                        <li>&quot;Qual o ponto mais importante da aula de hoje?&quot;</li>
+                        <li>&quot;Qual componente é o principal responsável por tal fenômeno/comportamento?&quot;</li>
+                      </ul>
+                      <p>Estes são apenas alguns exemplos. Você, com certeza, já está formulando novas perguntas. Que tal compartilhar com os demais colegas?</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <p>Outro recurso interessante é o <a href="https://www.google.com/intl/pt-BR/forms/about/" target="_blank"><strong>Google Forms</strong>.</a> Este pode ser usado de maneira síncrona, com visualização da evolução dos resultados, ou de maneira assíncrona, permitindo, ou não, que o aluno veja as respostas dos colegas e submeta a sua. A interface não é tão lúdica quanto à do Kahoot e Mentimeter, mas permite a inserção de imagens e equações, várias perguntas em um mesmo formulário, separação em seções e fluxo dirigido.</p>
+          <p>O Google Forms pode ser usado para avaliações com diversas questões, o que permite sugerir uma linha de raciocínio para a resolução do problema ou verificar até qual nível de conhecimento o aluno consegue atingir. Ele permite correção automática e envio de <em>feedbacks</em>, aumentando o engajamento por parte do aluno, mesmo em uma atividade assíncrona, pois o estudante se sentirá “acompanhado” pelo professor no momento da resolução.</p>
+        </div>
+        <div class="imagem-ilustrativa"><img src="images/foto-04-t3-100.jpg" loading="lazy" sizes="100vw" srcset="images/foto-04-t3-100-p-800.jpeg 800w, images/foto-04-t3-100-p-1600.jpeg 1600w, images/foto-04-t3-100.jpg 1921w" alt="" class="foto-ilustrativa"></div>
+        <div class="texto sem-espaco-topo-bottom w-richtext">
+          <h2><strong>Salão das Avaliações Formativas</strong></h2>
+          <blockquote>Conhecereis a verdade, e a verdade vos libertará. (João 8: 32)</blockquote>
+          <p>Avaliações formativas têm o objetivo de reforçar conceitos e aprimorar a formação dos alunos. O recurso principal é o <em>feedback</em> (resposta comentada), geralmente instantâneo e com conteúdo significativo (não é um mero “sim&quot; ou &quot;não”, “certo&quot; ou &quot;errado”). A cada resposta, o educando recebe dicas, correções, sugestões, elogios etc., para aprender ou reforçar seu conhecimento. Quando associadas a correções e <em>feedbacks</em> automáticos, o aluno pode executá-las quando e quantas vezes desejar, e o melhor: sentindo-se “remotamente” amparado pelo professor. Em geral, esse tipo de avaliação tem pouco peso na nota final da disciplina, mas é útil em um processo de avaliação continuada.</p>
+        </div>
+        <p class="texto sem-espaco-top">É importante que o professor prepare comentários baseados nos erros mais comuns dos alunos. A experiência adquirida em sala de aula permite que o educador preveja em quais aspectos os estudantes terão mais dificuldades. Então, os comentários servem para esclarecer a respeito dos erros típicos e reforçar os raciocínios corretos.  Assim, as dificuldades se tornam oportunidades para ensinar, e a avaliação se torna agradável para o aluno. <span class="destaque-texto">Note que os conceitos de erro, culpa ou punição não são coerentes com a avaliação formativa. Errar é permitido, sem culpa ou punição, pois este é um dos caminhos para a aprendizagem.</span> Permitir que o estudante repita a avaliação é uma boa estratégia, mas o objetivo não é atingir uma nota de aprovação, mas sim aprender o tema avaliado em várias situações, vários problemas ou contextos.</p>
+        <div class="box-trilha1">
+          <div class="box-conteudo-trilha1"><img src="images/saiba-icone-trilha01.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <h4>O que são distratores?</h4>
+                      <p>Raciocínios incorretos levam, geralmente, a respostas incorretas, mas previsíveis. Em uma questão de múltipla escolha, uma das respostas é a correta (gabarito), e as demais podem ser “distratores”, ou seja, respostas que podem ser encontradas a partir de raciocínios errados. </p>
+                      <p>Não são meras “pegadinhas” e, por serem resultados de um erro típico, podem ter um comentário específico, esclarecedor. Assim, o aluno percebe que errou, entende a razão do erro e aprende como responder corretamente a questão. Esse é um conceito usado pelo Exame Nacional do Ensino Médio (Enem), por exemplo. </p>
+                      <p>Fonte: adaptado de Viegas (2018, <em>on-line</em>) e Inep (2010).</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <p>Questões de múltipla escolha são excelentes para avaliações formativas, pois todas as alternativas podem ser comentadas, e a correção pode ser instantânea. O estilo de questão de múltipla escolha varia muito conforme a área do conhecimento, mas funciona bem para toda elas, observado alguns cuidados na elaboração (BRAME, 2013, <em>on-line</em>).</p>
+          <p>Saber o que pode dar errado ou o que não deve ser feito é uma técnica eficaz para evitar erros. Isso pode ser chamado de “avaliação de riscos”. Uma abordagem formativa interessante é pedir para que o estudante identifique maneiras de “errar” uma questão ou quais raciocínios levam a conclusões inadequadas. </p>
+        </div>
+        <div class="box-trilha1">
+          <div class="box-conteudo-trilha1"><img src="images/saiba-icone-trilha01.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>O que pode dar errado na resolução de uma questão? Se você sabe, então, por que errar? Estar consciente das fontes de erros mais comuns o(a) ajudará a minimizar a possibilidade de erros. Observe alguns exemplos:</p>
+                      <ul role="list">
+                        <li>Errar o sinal em uma operação matemática, com números negativos.</li>
+                        <li>Errar o cálculo com frações.</li>
+                        <li>Usar grandezas similares com diferentes unidades de medida.</li>
+                        <li>Interpretar um fato histórico a partir de conceitos atuais.</li>
+                        <li>Interpretar resultados fora de contexto ou domínio de validade.</li>
+                        <li>Adotar premissas falsas.</li>
+                        <li>Argumentar com base em <em>fake news</em>.</li>
+                        <li>Desprezar fatores relevantes na descrição de um fato.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <p>Avaliar os colegas (<strong>Avaliação por Pares</strong>) também pode ser uma maneira eficaz e divertida de aprender. Se, por um lado, os alunos têm linguagem e olhares semelhantes, o que facilita a comunicação entre eles, são, por outro, limitados em termos de critérios para um bom julgamento – ainda estão em formação e podem não ter a mesma experiência do professor, adquirida em anos de atividade. </p>
+          <p>Para administrar tal problema, é essencial que o professor prepare uma lista de aspectos e quesitos de avaliação, a fim de que os alunos saibam o que e como avaliar. Esses aspectos devem ser detalhados, para que os quesitos possam ser bem aplicados, e o mais importante: os estudantes devem ser informados, para que todo o processo seja transparente, gerando um ambiente de confiança e aproximando professores e alunos.</p>
+          <p>Enquanto avalia os colegas, o aluno tem contato com diferentes formas de raciocínio e percebe as próprias qualidades, falhas e limitações. Além disso, ele se torna protagonista em uma aprendizagem colaborativa e, por fim, aprende a classificar as informações relevantes com base na experiência transferida pelo professor. Também é possível propor a autoavaliação, pois o estudante saberá em quais quesitos falhou ou superou as expectativas. Para o docente, o trabalho de correção é reduzido, ficando restrito à solução de conflitos, revisão de algumas notas ou à normalização destas para evitar eventuais abusos entre os educandos.</p>
+        </div>
+        <div class="box-trilha1">
+          <div class="box-conteudo-trilha1"><img src="images/estudo-de-caso-icone.svg" width="274" alt="saiba mais" style="opacity:0" data-w-id="0d9338b9-e9a3-4f3d-e4c3-6929958f8714" class="img-icon-estudo-decaso">
+            <div class="container-box01">
+              <div class="box-texto w-richtext">
+                <p>Observe o seguinte estudo de caso levando em conta a Avaliação por Pares.</p>
+                <p>Considere uma avaliação que requer a elaboração de um gráfico de uma função linear (equação de uma reta) que descreve determinado fenômeno. A partir deste, devem ser encontrados os coeficientes (angular e linear) da equação que relaciona as variáveis, e esta deve ser interpretada.</p>
+                <p>É possível definir dois aspectos para a análise por pares:</p>
+                <ol role="list">
+                  <li>Qualidade do gráfico.</li>
+                  <li>Cálculo dos coeficientes e interpretação.<br></li>
+                </ol>
+                <p>Ambos os aspectos podem ser divididos em vários quesitos, cada um com uma pontuação máxima (valores entre colchetes):</p>
+                <p>1.1) [05] Os eixos estão identificados com o nome das grandezas?</p>
+                <p>1.2) [10] As unidades das grandezas foram indicadas?</p>
+                <p>1.3) [05] As escalas nos eixos são periódicas e de fácil leitura?</p>
+                <p>1.4) [05] Os pontos experimentais foram indicados?</p>
+                <p>1.5) [05] Foi traçada a reta de tendência?</p>
+                <p><br></p>
+                <p>2.1) [05] Foi calculado o coeficiente angular da reta?</p>
+                <p>2.2) [10] Foi indicada a unidade do coeficiente angular?</p>
+                <p>2.3) [15] O coeficiente angular foi interpretado?</p>
+                <p>2.4) [05] Foi calculado o coeficiente linear da reta?</p>
+                <p>2.5) [10] Foi indicada a unidade do coeficiente linear?</p>
+                <p>2.6) [15] O coeficiente linear foi interpretado?</p>
+                <p>2.7) [10] A equação do fenômeno foi interpretada?</p>
+                <p>Note que a ênfase (maior peso) foi dada às indicações das unidades das grandezas, à interpretação e à unidade dos coeficientes linear e angular. Tais pesos podem variar com o andamento das aulas. O aluno saberá facilmente o que avaliar, quais falhas cometeu e qual a importância de cada quesito. Ademais, não questionará o porquê de não ter tirado a nota máxima, pois já saberá a resposta.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box-trilha1">
+          <div class="box-conteudo-trilha1"><img src="images/saiba-icone-trilha01.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Em tempos de ensino remoto, muitas aulas são gravadas em vídeo e é sabido que, muitas vezes, os alunos não percebem alguns detalhes ou algumas informações relevantes quando assistem a tais gravações. Uma maneira de aumentar a percepção dos estudantes é gravar vídeos curtos (se possível, menos de dez minutos) e associar uma avaliação formativa ao conteúdo. Considere o oferecimento de um questionário com questões de múltipla escolha, tratando dos temas e detalhes abordados na gravação. </p>
+                      <p>Caso o aluno não tenha percebido algo importante, ele será alertado e instruído, podendo rever o conteúdo, desta vez com mais atenção e clareza. Considerando que o <em>feedback</em> é automático, ele poderá assistir ao conteúdo e fazer a atividade formativa de maneira assíncrona e independente. </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <h2><strong>Salão das Avaliações Somativas</strong></h2>
+          <blockquote>A vitória é o principal objetivo na guerra, mas o verdadeiro propósito da guerra é a paz. (Sun Tzu)</blockquote>
+          <p>Avaliações somativas têm como objetivo classificar o resultado da aprendizagem, visando à promoção de nível, mas seu propósito é a aprendizagem efetiva do aluno. São realizadas, geralmente, nos finais dos bimestres ou semestres, entretanto poderiam ser implementadas de forma contínua ou cumulativa durante o ano. </p>
+          <p>Tão importante quanto o formato (provas escritas, apresentações orais, resolução de problemas, execução de projetos etc.) é a estratégia de avaliação, ou seja, o tipo de questão que deve ser utilizada. Se o estudante tem acesso livre à consulta de informações, deve-se evitar questões cujas respostas podem ser encontradas facilmente na internet, ou que sejam apenas testes de memória. É preciso elaborar questões que exijam interpretação de textos, aplicações do conhecimento, pensamento crítico e tomada de decisão. Para isso, a resolução de problemas ou o estudo de casos reais são boas fontes inspiradoras. Outra opção é a Taxonomia de Bloom, comentada anteriormente, que considera as categorias: lembrar, entender, aplicar, analisar, sintetizar e criar.</p>
+          <p>Observe os seguintes exemplos de questões apropriadas para uma avaliação com consulta:</p>
+          <ul role="list">
+            <li>&quot;O que você entende por conceito X?&quot;</li>
+            <li>&quot;Explique o conceito X com suas palavras.&quot;</li>
+            <li>&quot;Como você explicaria o conceito X para um leigo?&quot;</li>
+            <li>&quot;Qual a relação do conceito X com o fenômeno Y?&quot;</li>
+            <li>&quot;Por que a hipótese Z foi assumida?&quot;</li>
+            <li>&quot;O que aconteceria se tal condição fosse negligenciada?&quot;</li>
+            <li>&quot;O que aconteceria se tal condição fosse verificada?&quot;</li>
+            <li>&quot;Como o problema poderia ter evoluído se tal fato tivesse ocorrido?&quot;</li>
+            <li>&quot;Considere determinado contexto. Como você espera que o problema evolua?&quot;</li>
+            <li>&quot;Considere determinado contexto. O que você propõe para atingir a condição X?&quot;</li>
+            <li>&quot;Quais as razões para você tomar tal decisão?&quot;</li>
+            <li>&quot;Quais fatores inspiraram você a chegar em tal solução?&quot;</li>
+            <li>&quot;Por que você acredita que tal solução seja a melhor?&quot;</li>
+            <li>&quot;Quais fatores contribuíram para tal resultado?&quot;</li>
+          </ul>
+        </div>
+        <p class="texto sem-espaco-top">Avaliações somativas com consulta permitem que o aluno demonstre sua capacidade de interpretação, classificação e síntese sobre determinado tema. Elas não são, obrigatoriamente, baseadas em questões mais difíceis e trabalhosas, mas sim em questões que exploram outras categorias da Taxonomia de Bloom, além da memorização. <span class="destaque-texto">No entanto, a implementação de avaliações com consulta exige que os alunos sejam preparados para tal atividade, o que requer, muitas vezes, que o professor reprograme suas aulas e, até mesmo, sua função em sala de aula.</span></p>
+        <div class="box-trilha1">
+          <div class="box-conteudo-trilha1"><img src="images/saiba-icone-trilha01.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Quer saber mais sobre questões abertas? Procure por “<em>open book questions</em>” ou “avaliações com consulta” no Google. Alguns materiais relevantes sobre o tema podem ser acessados a partir dos <em>links</em> disponíveis a seguir.</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="http://www.iiserpune.ac.in/~mohanan/educ/cdtl-obe.pdf" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://www.newcastle.edu.au/__data/assets/pdf_file/0006/268980/Open-Book-Exams.pdf" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <p>É certo que questões abertas ou avaliações com consulta exigem grande esforço para a correção, em especial para turmas numerosas. Haveria alguma solução intermediária entre questões abertas, de correção trabalhosa e de múltipla escolha com correção automática? Sim, existe uma solução intermediária, mas, evidentemente, com limitações.</p>
+          <p>É possível quebrar uma questão aberta em várias questões de múltipla escolha, ou seja, um enunciado completo, seguido de várias perguntas, cada uma com uma resposta definida. Com isso, ganha-se rapidez na correção (em realidade, automática e instantânea), porém é possível limitar as possibilidades de o aluno demonstrar sua criatividade, seu raciocínio e sua inovação. Uma variação é realizar parte da avaliação no formato múltipla escolha e parte no formato de questões abertas.</p>
+        </div>
+        <div class="box-trilha1">
+          <div class="box-conteudo-trilha1"><img src="images/estudo-de-caso-icone.svg" width="274" alt="saiba mais" style="opacity:0" data-w-id="92bb3589-3683-7e7d-3d86-0941b5920e70" class="img-icon-estudo-decaso">
+            <div class="container-box01">
+              <div class="box-texto w-richtext">
+                <p>Observe o seguinte exemplo sobre lançamento de um projétil, um conteúdo de física (cinemática).</p>
+                <p>Seja <strong>v</strong> o vetor velocidade inicial de uma partícula de massa m lançada a partir do solo, considere <strong>g</strong>, o vetor aceleração da gravidade.</p>
+                <p>Começando com questões tradicionais, de múltipla escolha. </p>
+                <p>Determine:</p>
+                <p>a) a altura máxima atingida;</p>
+                <p>b) o alcance do projétil;</p>
+                <p>c) a trajetória do projétil.</p>
+                <p>‍</p>
+                <p>Também é possível perguntar outros detalhes do movimento:</p>
+                <p>d) Qual o ângulo entre a velocidade inicial e o plano horizontal?</p>
+                <p>e) Na posição de alcance máximo, qual o trabalho realizado pela força peso?</p>
+                <p>f) No momento de retorno ao solo, qual o ângulo entre a velocidade e a aceleração?</p>
+                <p>g) Qual a variação de energia mecânica entre as posições inicial e final?</p>
+                <p>‍</p>
+                <p>É possível, ainda, fazer questões abertas:</p>
+                <p>h) Se a aceleração é constante, como pode o projétil subir e, depois, descer?</p>
+                <p>i) O que mudaria no movimento se fosse considerada a resistência do ar?</p>
+                <p>j) O que mudaria no movimento se fosse considerada a ação do vento?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="audiolivro" class="forum-trilha3">
+      <div class="container-13 w-container">
+        <h1 class="titulo-curso t2"><strong class="bold-text t3">fórum</strong></h1>
+        <div class="caixa-modelo2">
+          <div class="div-block line02"></div>
+          <div class="texto apresentacao w-richtext">
+            <p>‍</p>
+            <p>As formas de avaliação variam de acordo com a disciplina ou área do conhecimento. No entanto, algumas estratégias são comuns. Se, no ensino presencial, a memorização era a estratégia predominante, no ensino remoto ela perde muito de sua importância. Compartilhe neste fórum as estratégias que você adotou para aplicar avaliações remotas.</p>
+            <p>#boracompartilhar?!<br></p>
+          </div>
+          <a data-w-id="379140f7-15e2-14f6-a7ab-cd0cf1ca1df4" href="https://sthembrasil.instructure.com/courses/164/discussion_topics/313" target="_blank" class="btn-forum w-button">acessar fórum</a>
+          <div class="div-block line02"></div>
+        </div>
+      </div>
+    </div>
+    <div id="t3-tp03" class="secao-s wf-section">
+      <div class="capa-topico">
+        <div class="container-5 w-container">
+          <div class="div-block-8">
+            <p class="numero-topico">TÓPICO 3</p>
+          </div>
+          <h1 class="titulo-topico">Muito além de uma &quot;prova com consulta&quot;</h1>
+        </div>
+      </div>
+      <div class="w-container">
+        <div class="video-div">
+          <div style="padding-top:56.17021276595745%" class="video-2 w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F9dPdzxeAUSo%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D9dPdzxeAUSo&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F9dPdzxeAUSo%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></div><img src="images/player-click-video.svg" loading="lazy" width="180" alt="" class="image-37">
+        </div>
+        <div class="texto w-richtext">
+          <h2><strong>Pátio das Avaliações Continuadas</strong></h2>
+          <p>Tanto no ensino presencial quanto no ensino remoto, os alunos podem ter um fraco desempenho em uma avaliação por diferentes razões: nervosismo, problemas de saúde, ambiente inadequado, problemas técnicos, estilo da prova etc. Definir a aprovação do estudante em poucas avaliações pode ser um critério muito limitado e ineficaz.</p>
+          <p>Se o aluno fizer somente uma ou duas provas em todo o semestre, a nota final obtida terá o mesmo grau de confiabilidade se fizer uma pequena avaliação a cada semana ou a cada duas semanas? Pequenas avaliações têm alguns efeitos benéficos, principalmente durante o ensino remoto. Observe a seguir.</p>
+        </div>
+        <div data-hide="1" class="acoredeon">
+          <div class="acordeon-box-2">
+            <div class="acordeoni-item">
+              <div class="plus-wrap">
+                <div class="plus-l azul"></div>
+                <div class="plus azul"></div>
+              </div>
+              <div class="acoredeon-titulo-2 azul">1.º Benefício</div>
+            </div>
+            <div class="acordeon-conteudo">
+              <p class="acordeon-conteudo-texto">Fazem com que o aluno mantenha um ritmo constante de estudo, evitando que o conteúdo se acumule.</p>
+            </div>
+          </div>
+          <div class="acordeon-box-2">
+            <div class="acordeoni-item">
+              <div class="plus-wrap">
+                <div class="plus-l azul"></div>
+                <div class="plus azul"></div>
+              </div>
+              <div class="acoredeon-titulo-2 azul">2.º Benefício</div>
+            </div>
+            <div class="acordeon-conteudo">
+              <p class="acordeon-conteudo-texto">Intensificam o contato entre professor e aluno, para que as dúvidas sejam sanadas antes que uma nova matéria seja ministrada.</p>
+            </div>
+          </div>
+          <div class="acordeon-box-2">
+            <div class="acordeoni-item">
+              <div class="plus-wrap">
+                <div class="plus-l azul"></div>
+                <div class="plus azul"></div>
+              </div>
+              <div class="acoredeon-titulo-2 azul">3.º Benefício</div>
+            </div>
+            <div class="acordeon-conteudo">
+              <p class="acordeon-conteudo-texto">Permitem explorar vários estilos de avaliação, com base em diferentes habilidades.</p>
+            </div>
+          </div>
+        </div>
+        <div class="texto w-richtext">
+          <p>Nos tópicos anteriores, você viu como classificar as avaliações em diagnósticas, formativas e somativas. Agora, uma classificação alternativa é em relação ao grau de importância da avaliação para a disciplina. Nesse contexto, as avaliações podem ser divididas em dois tipos: <strong>avaliação de alta decisão</strong> e <strong>avaliação de baixa decisão</strong>.</p>
+          <p>As avaliações de baixa decisão têm pouco impacto na nota final do aluno na disciplina e tem como objetivo principal prover um <em>feedback</em> rápido sobre o conteúdo. São avaliações que servem muito bem ao propósito de avaliar continuamente o estudante, pois possibilitam a utilização de vários instrumentos de baixa decisão, o que faz com o que o aluno estude de forma contínua e, assim, aprenda o conteúdo em pequenas doses.</p>
+        </div>
+        <div class="box-trilha1">
+          <div class="box-conteudo-trilha1"><img src="images/saiba-icone-trilha01.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Como fazer com que a nota reflita, de fato, a aprendizagem do estudante? Será que os professores têm avaliado o conhecimento ou somente distribuído notas?</p>
+                      <p>O <em>site</em> a seguir apresenta várias dicas nesse sentido e discute a questão das avaliações de alta e baixa decisão. Não deixe de conferir! O conteúdo está em inglês, mas, se estiver utilizando o navegador Google Chrome, pode traduzi-lo automaticamente. </p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://resources.depaul.edu/teaching-commons/teaching-guides/feedback-grading/Pages/default.aspx" target="_blank" class="btn-box"><strong>Disponível aqui</strong><br></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto w-richtext">
+          <p>A forma mais comum de implementar a avaliação continuada, mesclando avaliações de alta decisão com avaliações de baixa decisão, é aplicar duas ou três provas que tenham peso maior na nota final do aluno, intercaladas com avaliações – comumente chamadas de testes – que avaliem conteúdos específicos. Nas disciplinas iniciais de uma graduação, o uso de uma série de avaliações de baixa decisão pode ser muito interessante para, por exemplo, constituir uma avaliação diagnóstica para medir se os estudantes possuem os pré-requisitos necessários para acompanhar os cursos. </p>
+          <p>Em contrapartida, é possível utilizar somente avaliações de alto impacto, a fim de mensurar, por exemplo, todo o aprendizado de uma disciplina usando duas ou três provas. Note que, neste caso, fatalmente ocorrerá o acúmulo de conteúdo para ser estudado. Apesar de os professores estimularem seus alunos a estudarem o conteúdo à medida que ele é ensinado, nem sempre é o que acontece. Unindo isto ao fato de haver diversas disciplinas, está pronta a tragédia: alunos estudando na véspera da prova, decorando o conteúdo sem, de fato, aprender.</p>
+          <p>As avaliações continuadas, bem como as estratégias de avaliação apresentadas nesta trilha, também podem ajudar a resolver um problema apontado por muitos professores no ensino remoto: a <strong>cola</strong>. Este é um problema que existe, também, no ensino presencial, mas no remoto é mais grave, visto que não há controle eficiente sobre ele.</p>
+          <p>Embora <a href="#" data-w-id="0511b7d1-5d85-6ae9-439e-5484f7fbb639">sistemas de <em>proctoring</em></a> que monitoram estudantes durante a realização de exames sejam bastante comuns, muitas questões sobre a privacidade dos estudantes que utilizam tais sistemas têm sido levantadas. Além disso, sua confiabilidade, muitas vezes, é colocada à prova.</p>
+          <p>O fato é que, quando o estudante responde a uma questão tradicional (que não foi elaborada pensando que ele estará em casa, com seu livro aberto), professores, em geral, ficam desconfiados, pois é difícil saber se não foi respondida por outra pessoa. Um dos motivos para isto é que, principalmente durante o ensino remoto, os educadores têm pouco contato com os alunos. Sem ter acompanhado a evolução destes durante o curso, como saber se a nota obtida na prova é realmente compatível com a aprendizagem adquirida?</p>
+          <p>A avaliação continuada pode ajudar nesse problema, uma vez que o aluno será acompanhado desde o começo da disciplina e o professor perceberá seu desenvolvimento. Mesmo assim, a questão é bastante complexa e merece ampla discussão. Em vez de preocupar-se com a cola, talvez seja melhor mudar um pouco o parâmetro de avaliação, e os métodos que você aprendeu neste curso são ótimos para isto.</p>
+        </div>
+        <div class="imagem-ilustrativa"><img src="images/foto-05-t3-100.jpg" loading="lazy" sizes="100vw" srcset="images/foto-05-t3-100-p-800.jpeg 800w, images/foto-05-t3-100-p-1080.jpeg 1080w, images/foto-05-t3-100-p-1600.jpeg 1600w, images/foto-05-t3-100.jpg 1920w" alt="" class="foto-ilustrativa"></div>
+        <div class="texto sem-espaco-top w-richtext">
+          <h2><strong>Pátio das Habilidades Comportamentais</strong></h2>
+          <p>Agora que você já sabe como avaliar o conhecimento técnico dos seus alunos de forma ampla, verá que é possível, também, avaliá-los em relação a habilidades comportamentais, que são cada vez mais buscadas em profissionais de todas as áreas. Primeiramente, algumas definições: o conhecimento técnico, passado pelos currículos dos cursos, é conhecido como <strong><em>hard skills</em></strong>. O conceito é amplo, mas são exemplos destas habilidades: saber como utilizar Teorema de Green para integrais de linha; conhecer em detalhes o ciclo de Krebs; e saber a quantidade adequada de nitrogênio no solo para que o tomateiro se desenvolva melhor. As <em>hard skills</em> são conhecimentos ou habilidades <strong>profissionais</strong> e <strong>técnicas</strong>, que sempre foram e continuarão a ser necessárias tanto para carreiras que têm como objetivo imediato o mercado de trabalho quanto para carreiras acadêmicas.</p>
+          <p>Outro tipo de conhecimento amplamente procurado pelo mercado de trabalho e pelas universidades são as <strong><em>soft skills</em></strong>, isto é, as <strong>habilidades comportamentais</strong>. Características como liderança, resiliência, resolutividade, capacidade de comunicação, entre outras são desejáveis nos estudantes, mas quase sempre não são ensinadas – nem exigidas.</p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t3-fig03.svg" width="500" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 3 - <em>Soft skills</em> e<em> hard skills</em> | Fonte: adaptada de CIS Assessment ([2020], <em>on-line</em>).</p>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <p>Segundo Ngang, Chan e Vetriveilmany (2015), a forma com a qual universidades organizam seus cursos têm impedido o ensino e a avaliação de <em>soft skills</em>. Entre os motivos estão as turmas muito grandes e o ensino estritamente orientado às notas, e não ao aprendizado. Em contrapartida, empregadores insistem que as universidades invistam no ensino de habilidades comportamentais. A falta de atividades avaliativas que envolvem trabalhar em grupo, escrever detalhadamente projetos e soluções para problemas e lidar com equipes multidisciplinares são barreiras para isso.</p>
+          <p>Kuzuyabu (2019, <em>on-line</em>), ao discorrer sobre a apresentação do professor Eric Mazur – idealizador e estudioso de vários dos tópicos apresentados nesta trilha, como Avaliação por Pares e Sala de Aula Invertida –no 21.º Fórum Nacional do Ensino Superior Particular Brasileiro (Fnesp), promovido pela Secretaria de Modalidades Especializadas de Educação (Semesp), comenta o seguinte sobre as <em>soft skills</em>:</p>
+          <blockquote>No lugar dos testes que dão notas aos alunos, os professores deveriam produzir relatórios sobre o desenvolvimento do aluno, contemplando não apenas a aquisição de conteúdos, mas a conquista de habilidades como a capacidade de trabalhar em grupo, o engajamento e o profissionalismo (KUZUYABU, 2019, <em>on-line</em>).</blockquote>
+          <p>Desenvolver <em>soft skills</em> pode não ser tarefa fácil, tampouco adequada para uma sala de aula, visto que exige profissionais habilitados, com metodologias próprias. No entanto, despertar esse tema entre os alunos e, até mesmo, avaliá-los em algumas atividades é viável e importante para a formação acadêmica. </p>
+          <p>Durante o ensino remoto, e mesmo no ensino presencial, é possível trocar uma prova tradicional por uma atividade que estimule o estudante a fazer uma pesquisa e apresentar seus resultados. Em vez de uma resposta numérica, incentive-o a descrever o procedimento, a argumentar sobre seus pontos positivos e negativos ou a explicar quando o método falha. Tais atividades farão com que a turma interaja entre si e podem ser corrigidas por pares, despertando o senso crítico, a colaboração, entre outras habilidades. Essas estratégias certamente terão impacto positivo no desenvolvimento dos educandos, tanto em termos técnicos quanto pessoais.</p>
+        </div>
+        <div class="box-trilha1">
+          <div class="box-conteudo-trilha1"><img src="images/saiba-icone-trilha01.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Você, professor(a), não precisa ser um especialista para despertar habilidades comportamentais nos alunos. Muitas vezes, basta dar uma oportunidade, seja em uma avaliação, seja em uma atividade, e eles, naturalmente, revelam seus potenciais. </p>
+                      <p>A seguir, confira alguns materiais que podem inspirá-lo(a) a desenvolver aulas que despertam tais habilidades nos estudantes.</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://www.gssaweb.org/wp-content/uploads/2015/04/Best-Practices-in-Soft-Skills-Assessment-1.pdf" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="http://research.education.nmsu.edu/files/2014/01/396_MASS-wp4-final-report-part-1.pdf" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="audiolivro" class="forum-trilha3">
+      <div class="container-13 w-container">
+        <h1 class="titulo-curso t2"><strong class="bold-text t3">fórum</strong></h1>
+        <div class="caixa-modelo2">
+          <div class="div-block line02"></div>
+          <div class="texto apresentacao w-richtext">
+            <h4><strong></strong></h4>
+            <p>Avaliação continuada não significa aplicar diversas avaliações, pois o propósito da educação não é treinar o aluno para fazer provas, mas sim adquirir conhecimentos, habilidades, letramento e competências para estar em um mundo em constante transformação e repleto de novos desafios.</p>
+            <p>#boracompartilhar?!<br></p>
+          </div>
+          <a data-w-id="e0de633a-63bb-4cc4-9799-690b25a64eef" href="https://sthembrasil.instructure.com/courses/164/discussion_topics/312" target="_blank" class="btn-forum w-button">acessar fórum</a>
+          <div class="div-block line02"></div>
+        </div>
+      </div>
+    </div>
+    <div class="secao-s wf-section">
+      <div class="capa-topico">
+        <div class="container-5 w-container">
+          <h1 class="titulo-topico">Referências</h1>
+        </div>
+      </div>
+      <div class="w-container">
+        <div href="" class="texto w-richtext">
+          <p>BRAME, C. Writing good multiple choice test questions. <strong>Vanderbilt University</strong>, 2013. Center For Teaching. Disponível em: <a href="https://cft.vanderbilt.edu/guides-sub-pages/writing-good-multiple-choice-test-questions/." target="_blank">https://cft.vanderbilt.edu/.</a> Acesso em: 5 out. 2020. </p>
+          <p>CALLAGHAN, R. Universities teach soft skills employers want to students of &#x27;hard&#x27; disciplines. <strong>Financial</strong> <strong>Review</strong>, 30 mar. 2017. Disponível em: <a href="https://www.afr.com/work-and-careers/education/universities-teach-soft-skills-employers-want-to-students-of-hard-disciplines-20170328-gv89hq">https://www.afr.com</a>. Acesso em: 5 out. 2020.</p>
+          <p>CHIN, M. Exam Anxiety: how remote test-proctoring is creeping students out.  <strong>The Verge</strong>, 29 abr. 2020. Disponível em: <a href="https://www.theverge.com/2020/4/29/21232777/examity-remote-test-proctoring-online-class-education" target="_blank">https://www.theverge.com/</a>. Acesso em: 6 out. 2020.</p>
+          <p>CIS ASSESSMENT. O que são as soft skills? Descubra como desenvolver suas habilidades e se destacar na profissão. <strong>Blog Cis Assessment</strong>, Fortaleza, 2020. Disponível em: <a href="https://cisassessment.com/soft-skills-como-desenvolver-habilidades/" target="_blank">https://cisassessment.com/</a>. Acesso em: 6 out. 2020.</p>
+          <p>GOMES, P. Conheça as competências para o século 21. <strong>Inovações em Educação</strong>, 14 ago. 2012. Disponível em: <a href="https://porvir.org/conheca-competencias-para-seculo-21/">http://porvir.org/</a>. Acesso em: 5 out. 2020.</p>
+          <p>HUBLER, S. Keeping Online Testing Honest? Or an Orwellian Overreach? <strong>The New York Times</strong>, 10 mar. 2020. Morning Briefing. Disponível em: <a href="https://www.nytimes.com/2020/05/10/us/online-testing-cheating-universities-coronavirus.html" target="_blank">https://www.nytimes.com/</a>. Acesso em: 6 out. 2020.</p>
+          <p>INEP. <strong>Guia de Elaboração e Revisão de Itens</strong>. v. 1. Brasília: Inep, 2010. Disponível em: <a href="https://www.somospar.com.br/wp-content/uploads/2018/08/Guia-para-elaboracao-e-revisao-de-itens-ENEM.pdf" target="_blank">https://www.somospar.com.br/</a>. Acesso em: 5 out. 2020.</p>
+          <p>KUZUYABU, M. Professor de Harvard defende o fim das avaliações tradicionais. <strong>Ensino Superior</strong>, 26 set. 2019. Seção Inovação. Disponível em: <a href="https://revistaensinosuperior.com.br/professor-harvard/" target="_blank">https://revistaensinosuperior.com.br/</a>. Acesso em: 5 out. 2020.</p>
+          <p>TANG, K. N.; CHAN, T. C.; VETRIVEILMANYC, U. D. A. Critical Issues of Soft Skills Development in Teaching Professional Training: Educators&#x27; Perspectives. <strong>Procedia - Social and Behavioral Sciences</strong>, v. 205, n. 9, p. 128-133, oct. 2015. Disponível em: <a href="https://www.researchgate.net/publication/283957015_Critical_Issues_of_Soft_Skills_Development_in_Teaching_Professional_Training_Educators&#x27;_Perspectives" target="_blank">https://www.researchgate.net/</a>. Acesso em: 6 out. 2020.</p>
+          <p>TONINI, A. M.; PEREIRA, T. R. D. S. (orgs.). <strong>Desafios da Educação em Engenharia</strong>: Inovação e Sustentabilidade, Aprendizagem Ativa e Mulheres na Engenharia. Brasília: Abenge, 2018. </p>
+          <p>VIEGAS, A. Item Enem: o conceito de distrator. <strong>Par Plataforma Educacional</strong>, 7 ago. 2018. Disponível em: <a href="https://www.somospar.com.br/prova-enem-o-conceito-de-distrator/#:~:text=O%20que%20s%C3%A3o%20os%20distratores,quatro%20s%C3%A3o%20chamadas%20de%20distratores" target="_blank">https://www.somospar.com.br/</a>. Acesso em: 5 out. 2020.</p>
+          <p>WILKIE, D. Employers Say Students Aren’t Learning Soft Skills in College. <strong>SHRM</strong>, 21 out. 2019. Disponível em: <a href="https://www.shrm.org/resourcesandtools/hr-topics/employee-relations/pages/employers-say-students-arent-learning-soft-skills-in-college.aspx" target="_blank">https://www.shrm.org/</a>. Acesso em: 6 out. 2020.</p>
+        </div>
+      </div>
+    </div>
+    <div id="inicio" class="secao-autores wf-section">
+      <div class="container-apresentacao w-container">
+        <div class="apresentacao-div video">
+          <div class="div-block-16 line02"></div>
+          <div class="div-block-21"><img src="images/unissaum.png" width="323" alt="" class="logo-sthem-modelo2"></div><img src="images/recapitulando.svg" loading="lazy" width="500" alt="" class="image-36">
+          <div class="imagem-legenda"><img src="images/t3-info2x.png" width="910" sizes="(max-width: 479px) 81vw, (max-width: 767px) 87vw, (max-width: 991px) 608px, 775px" srcset="images/t3-info2x-p-500.png 500w, images/t3-info2x-p-800.png 800w, images/t3-info2x.png 3311w" alt="" class="imagem-conteudo"></div>
+          <div class="video-div">
+            <div style="padding-top:56.17021276595745%" class="video-2 w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fb4FN40ioPJE%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Db4FN40ioPJE&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fb4FN40ioPJE%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></div><img src="images/player-click-video.svg" loading="lazy" width="180" alt="" class="image-37">
+          </div>
+          <div class="div-block-16 line02"></div>
+        </div>
+      </div>
+    </div>
+    <div class="section-final home t3 wf-section">
+      <div class="container-3 w-container">
+        <div class="div-block-5"></div>
+        <h3 class="texto-final">Parabéns! <br>Você finalizou a Trilha 3!</h3>
+        <p class="texto-final-avancar">Selecione o botão <strong>&quot;avançar&quot;  </strong>para iniciar as trilhas novamente.</p>
+        <div class="btn-navegacao">
+          <div class="columns-3 w-row">
+            <div class="w-col w-col-6">
+              <a data-w-id="e1fd42e7-451c-0561-c126-f0a637793687" href="trilha-2.html" class="button w-button">Voltar</a>
+            </div>
+            <div class="w-col w-col-6">
+              <a data-w-id="e1fd42e7-451c-0561-c126-f0a63779368a" href="index.html" class="button w-button">avançar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rodape wf-section">
+    <div class="w-container">
+      <p class="paragraph-5">© <a href="https://www.sthembrasil.com/" target="_blank" class="link">STHEM Brasil</a> - Todos direitos reservados | Produzido por <a href="http://www.b42.com.br" target="_blank" class="link">B42</a>.</p>
+    </div>
+  </div>
+  <div class="glossario-popup">
+    <div class="glossario-t3-p1">
+      <div class="popup-notas">
+        <div class="d-13-icons-wrapper-2">
+          <a href="#" class="d-13-icon-wrapper w-inline-block">
+            <div data-w-id="22fe1c13-0fe1-0bf2-a2a7-286690ba0c72" class="close-popup">
+              <div class="text-block-7">X</div>
+            </div>
+            <div class="d-13-border-2"></div>
+          </a>
+        </div>
+        <div class="div-block-23">
+          <div class="notas-text-box">
+            <div class="texto-branco popup w-richtext">
+              <h4><strong><em><br>Sistemas de proctoring:</em></strong></h4>
+              <p>Sistemas de monitoramento remoto.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=60915f334482b04c3b8f1bb7" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+  <script type="text/javascript">
+    function mudarCSS(arquivoCss) {
+        //pega a tag do tipo <link que tenha o href que comece com o texto "./css/temas/theme"
+        var oldlink = document.querySelector('link[href^="css"]');
+        //Cria um novo elemento tag <link> e seta os atributos
+        var newlink = document.createElement("link");
+        newlink.setAttribute("rel", "stylesheet");
+        newlink.setAttribute("type", "text/css");
+        //seta o href (está numa variavel pq veio por parametro)
+        newlink.setAttribute("href", arquivoCss);
+        //faz o replace, tira o velho e coloca o novo.
+        document.querySelector('head').replaceChild(newlink, oldlink);
+    }
+    document.querySelector('#mudarTema').addEventListener("change", function() {
+        var basePathThemes = 'css/';
+        var arquivoCss = basePathThemes + 'trocar-pelo-nome-dosubdominio.css';
+        var texto = '';
+        if (this.checked) {
+            arquivoCss = basePathThemes + 'sthem-modo-noturno.css';
+            texto = '';
+        }
+        this.parentElement.closest(".toggle").querySelector('span').innerText = texto;
+        mudarCSS(arquivoCss);
+    });
+    document.querySelector('#mudarAltoContraste').addEventListener("change", function() {
+        var basePathThemes = 'css/';
+        var arquivoCss = basePathThemes + 'trocar-pelo-nome-dosubdominio.css';
+        var texto = '';
+        if (this.checked) {
+            arquivoCss = basePathThemes + 'sthem-alto-contraste.css';
+            texto = '';
+        }
+        this.parentElement.closest(".toggle").querySelector('span').innerText = texto;
+        mudarCSS(arquivoCss);
+    });
+</script>
+  <script src="https://s3.amazonaws.com/assets.b42.com.br/player/mediaelement-and-player.min.js"></script>
+  <script src="https://s3.amazonaws.com/assets.b42.com.br/player/plugins/speed/speed.min.js"></script>
+  <script src="https://s3.amazonaws.com/assets.b42.com.br/player/plugins/speed/speed-i18n.js"></script>
+  <script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    var mediaElements = document.querySelectorAll('audio'), i, total = mediaElements.length;
+    for (i = 0; i < total; i++) {
+      new MediaElementPlayer(mediaElements[i], {
+        pluginPath: './mediaelement',
+        features: ['playpause', 'current', 'progress', 'duration', 'speed', 'skipback', 'jumpforward', 'tracks','markers', 'volume', 'chromecast', 'ads', 'vast', 'contextmenu'],
+        startLanguage: 'pt'
+      });
+    }
+  });
+</script>
+</body>
+</html>

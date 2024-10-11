@@ -1,0 +1,1351 @@
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
+<!--  Last Published: Sat Mar 19 2022 14:55:57 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="60915f334482b05cc68f1bc3" data-wf-site="60915f334482b04c3b8f1bb7">
+<head>
+  <meta charset="utf-8">
+  <title>Trilha 2</title>
+  <meta content="Trilha 2" property="og:title">
+  <meta content="Trilha 2" property="twitter:title">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/sthem-exemplo.webflow.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Oswald:200,300,400,500,600,700","Roboto Slab:100,200,300,regular,500,600,700,800,900"]  }});</script>
+  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <style>
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 6px;
+}
+*::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(172, 215, 128, 0.5), rgba(161, 165, 219, 0.5) 25%, rgba(198, 93, 88, 0.5) 50%, rgba(252, 197, 107, 0.5) 75%, rgba(255, 226, 102, 0.5));
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(172, 215, 128, 0.7), rgba(161, 165, 219, 0.7) 25%, rgba(198, 93, 88, 0.7) 50%, rgba(252, 197, 107, 0.5) 75%, rgba(255, 226, 102, 0.7));
+}
+*::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(180deg, rgba(172, 215, 128, 1), rgba(161, 165, 219, 1) 25%, rgba(198, 93, 88, 1) 50%, rgba(252, 197, 107, 1) 75%, rgba(255, 226, 102, 1));
+}
+</style>
+  <link rel="stylesheet" href="https://s3.amazonaws.com/assets.b42.com.br/player/mediaelementplayer.css">
+  <link rel="stylesheet" href="https://s3.amazonaws.com/assets.b42.com.br/player/plugins/speed/speed.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript">
+function strReplace(haystack, needle, replacement) {
+    var temp = haystack.split(needle);
+    return temp.join(replacement);
+}
+ $(document).ready(function(){
+    var div = '#content',
+        contador = 0,
+        obj_tratados = [
+                        div,
+                        div + ' p',
+                       ],
+        reset_fonte = [],
+        reset_linha = [];
+    setDefaultZoom(obj_tratados, reset_fonte, reset_linha, contador);
+    $('#a_mais,#a_menos,#a_reset').on('click', function() {
+       var id = $(this).attr('id');
+        var min = 6;
+        var max = 150;
+        for (var i in obj_tratados) {
+            var tratados = $(obj_tratados[i]);
+            var tamanho_fonte = strReplace(tratados.css('fontSize'), 'px', '');
+            var tamanho_entrelinha = strReplace(tratados.css('lineHeight'), 'px', '');
+            switch (id) {
+                case 'a_mais':
+                    if (tamanho_fonte <= max) {
+                        tamanho_fonte++;
+                         // tamanho entrelinha aumento
+                         tamanho_entrelinha = (tamanho_fonte * 1.8);
+                         tamanho_entrelinha++;
+                        contador++;
+                    }
+                    break;
+                case 'a_menos':
+                    if (tamanho_fonte >= min) {
+                        tamanho_fonte--;
+                       // tamanho entrelinha redução;
+                        var val = tamanho_entrelinha - (tamanho_entrelinha * 3 / 100);
+                       // tamanho_entrelinha = arredondarValor(val);
+                       tamanho_entrelinha = (tamanho_fonte * 1.8);
+                        tamanho_entrelinha--;
+                        contador++;
+                    }
+                    break;
+                case 'a_reset':
+                default:
+                    // resetar 
+                    tamanho_fonte = reset_fonte[i];
+                    tamanho_entrelinha = reset_linha[i];
+                    break;
+            }
+            tratados.css({'fontSize': tamanho_fonte + 'px', 'lineHeight': tamanho_entrelinha + 'px'});
+        }
+       //cancel a click event
+        return false;
+    });
+    function setDefaultZoom(obj_tratados, reset_fonte, reset_linha, contador) {
+        for (var i in obj_tratados) {
+            var tratados = $(obj_tratados[i]);
+            if (contador == 0) {
+                reset_fonte[i] = strReplace(tratados.css('fontSize'), 'px', '');
+                reset_linha[i] = strReplace(tratados.css('lineHeight'), 'px', '');
+            }
+        }
+    }
+});
+</script>
+</head>
+<body class="body">
+  <div class="menu">
+    <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8915" class="d-82-menu-trigger-wrapper">
+      <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8916" class="d-82-trigger-line"></div>
+      <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8917" class="d-82-trigger-line"></div>
+      <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8918" class="d-82-trigger-line"></div>
+    </div>
+    <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8919" class="d-82-menu-wrapper">
+      <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c891a" class="d-82-bg-scale-wrapper"></div>
+      <div class="d-82-image-wrapper">
+        <div data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c891c" class="d-82-image"></div>
+      </div>
+      <div class="d-82-menu-right-wrapper">
+        <nav class="d-82-menu-item-wrapper">
+          <a data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c891f" href="#" class="d-82-menu-item inativo w-inline-block">
+            <div class="d-82-menu-item-text">home</div>
+            <div class="d-82-menu-item-underline"></div>
+          </a>
+          <a data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8923" href="trilha1.html" class="d-82-menu-item w-inline-block">
+            <div class="d-82-menu-item-text">Trilha 1</div>
+            <div class="d-82-menu-item-underline"></div>
+          </a>
+          <a data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c8927" href="#" class="d-82-menu-item inativo w-inline-block">
+            <div class="d-82-menu-item-text">Trilha 2</div>
+            <div class="d-82-menu-item-underline"></div>
+          </a>
+          <a data-w-id="411ed24b-c14e-4d1d-1e98-8a72438c892b" href="#" class="d-82-menu-item inativo w-inline-block">
+            <div class="d-82-menu-item-text">Trilha 3</div>
+            <div class="d-82-menu-item-underline"></div>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="acess-content-2">
+    <div class="acess-modal-2">
+      <div class="text-acess-2">
+        <div id="controle_zoom" class="font-size-ajuste espaco">
+          <a id="a_mais" title="aumentar fonte" href="#" class="btn-font-2 w-button">A+</a>
+          <a id="a_menos" title="diminuir fonte" href="#" class="btn-font-2 w-button">A-</a>
+          <a id="a_reset" title="resetar fonte" href="#" class="btn-font-2 w-button">A0</a>
+        </div>
+        <div class="font-size-ajuste">
+          <div class="w-embed"></div>
+          <div class="html-embed-2 w-embed">
+            <style>
+.texto-acessivel{
+    /*padding-left:25px;
+    padding-top: 10px;
+    padding-bottom: 15px;*/
+    /*float:right !important;*/
+  }
+.barra-de-acessibilidade{
+    min-height: 50px !important; 
+    overflow: hidden;  
+    position: fixed;  left: 0; top:0; 
+    width: 100%; 
+    display: block; 
+    z-index: 99999; 
+    padding-top: 12px !important;
+    padding-left: 20px !important;
+    padding-bottom: 10px !important;
+    background-color: #275488 !important;
+  }
+  /*.btn-acessivel{
+    height: 50px; 
+    width: 50px;
+    padding: 5px;
+    overflow: hidden;  
+    background-color: #0077bd;  
+    position: fixed;  
+    left: 0; 
+    top: 35%;
+    display: block; 
+    z-index: 9999999999; 
+  } 
+  .btn-acessivel:hover{
+      background-color: #0f3752;  
+  }*/
+  audio{
+  margin-left: 18px;
+  padding-top: 7px;
+  height: 30px;
+  width: 95%;
+}
+.audio-alinhamento{
+ margin-top: 10px;
+}
+.img-acessibilidade{
+  width: 22px;
+  height: 22px;
+   margin-left: 15px;
+   margin-right: 5px;
+}
+.img-acessibilidade-audio{
+  width: 27px;
+  height: 27px;
+  margin-left: 15px;
+  margin-right: 5px;
+  padding-bottom: -25px;
+}
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+ /* margin-left: 20px;*/
+  margin-top: 5px;
+}
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 16px;
+  width: 40px;
+  height: 20px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+.toggle-switch:before, .toggle-switch:after {
+  content: "";
+}
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: left 0.25s;
+}
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.toggle-checkbox:checked + .toggle-switch {
+  background: #263238;
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 25px;
+}
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+.toggle-label {
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
+  color: #fff;
+  font-size: 0.9em;
+}
+.atalho{
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+  .w-webflow-badge {
+  display: none !important;
+  }
+  .audio-div{
+    height: 40px; 
+    width: 100%;
+    overflow: hidden;  
+    position: fixed;  left: 0; bottom:0; 
+    display: block; z-index: 999999; 
+    background-color: #08001F;
+    display: none;
+  }
+</style>
+            <label class="toggle leituraNoturna">
+              <img src="images/noturno.svg" width="140" alt="leitura noturna" class="img-acessibilidade">
+              <input id="mudarTema" class="toggle-checkbox" type="checkbox">
+              <div class="toggle-switch"></div>
+              <span class="toggle-label"> </span>
+            </label>
+            <label class="toggle altoContraste">
+              <img src="images/constrast.svg" width="140" alt="leitura alto contraste " class="img-acessibilidade">
+              <input id="mudarAltoContraste" class="toggle-checkbox" type="checkbox">
+              <div class="toggle-switch"></div>
+              <span class="toggle-label"> </span>
+            </label>
+          </div>
+        </div>
+        <a title="fechar acessibilidade" data-w-id="deb3c621-0f46-34de-4187-1d430e8bccd3" href="#" class="btt-acess-fechar-2 w-button">X</a>
+      </div>
+    </div>
+    <a accesskey="4" title="abrir acessibilidade" data-w-id="deb3c621-0f46-34de-4187-1d430e8bccd5" href="#" class="btn-acess-2 w-inline-block">
+      <div class="acess-logo"></div>
+    </a>
+  </div>
+  <div data-poster-url="https://uploads-ssl.webflow.com/5f5a1cef604dc322f5a6fc3a/5f5b6c27ff27576d7abc4a89_bg-sthem-competeniasL-poster-00001.jpg" data-video-urls="videos/bg-sthem-competeniasL-transcode.mp4,videos/bg-sthem-competeniasL-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="videotrilha-bg-02 w-background-video w-background-video-atom"><video autoplay="" loop="" style="background-image:url(&quot;https://uploads-ssl.webflow.com/5f5a1cef604dc322f5a6fc3a/5f5b6c27ff27576d7abc4a89_bg-sthem-competeniasL-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+      <source src="videos/bg-sthem-competeniasL-transcode.mp4" data-wf-ignore="true">
+      <source src="videos/bg-sthem-competeniasL-transcode.webm" data-wf-ignore="true">
+    </video><img src="images/secundus-titulo.png" loading="lazy" style="opacity:0;-webkit-transform:translate3d(0, 0, 0) scale3d(0.2, 0.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0.2, 0.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0.2, 0.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0.2, 0.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" data-w-id="c7e69bde-4880-a7e2-ba31-f8511f7d41c6" srcset="images/secundus-titulo-p-500.png 500w, images/secundus-titulo-p-800.png 800w, images/secundus-titulo-p-1080.png 1080w, images/secundus-titulo.png 1276w" sizes="100vw" alt="" class="image-34">
+    <a href="#inicio-trilha1" data-w-id="3f45c24f-4216-60eb-2cd3-9c753766bb2d" style="-webkit-transform:translate3d(0, -100PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -100PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -100PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -100PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="seta-scrool-trilhas w-inline-block"><img src="images/scrool.svg" width="80" alt="inicie sua jornada" class="image-2"></a>
+  </div>
+  <div id="inicio-trilha1" class="section wf-section"><img src="images/logo-marca-completa.svg" width="219" alt="" class="image"></div>
+  <div id="audiobook-ancora"></div>
+  <div id="audiolivro" class="podcast-trilha2">
+    <div class="container-13 w-container">
+      <h1 class="titulo-curso"><strong class="bold-text t2">Interatividade e Compartilhamento</strong></h1>
+      <div class="podcast-player">
+        <div class="player-b42 w-embed">
+          <div class="media-wrapper audio-player">
+            <audio preload="none" controls="" style="max-width:100%; display: none;">
+              <source src="audios/podcast-T2.mp3" type="audio/mp3">
+            </audio>
+          </div>
+        </div>
+      </div><img src="images/cllique-ouvir-podcast.svg" loading="lazy" width="200" alt="" class="image-35">
+    </div>
+  </div>
+  <div id="inicio" class="secao-autores wf-section">
+    <div class="container-apresentacao w-container">
+      <div class="apresentacao-div autores">
+        <div class="div-block-16 line02"></div>
+        <div class="div-block-21"><img src="images/unissaum.png" width="323" alt="" class="logo-sthem-modelo2"></div><img src="images/autores-.svg" loading="lazy" width="300" alt="" class="image-36">
+        <div class="autores-coluna w-row">
+          <div class="w-col w-col-4"><img src="images/amilton-prof.png" alt="foto autor" width="200" class="imagem-autores"></div>
+          <div class="column-6 w-col w-col-8">
+            <p class="nome-participantes">Amilton Rodrigo de Quadros Martins</p>
+            <p>Pós-Doutor em Educação pela Universidade de Lisboa; Doutor e Mestre em Educação pela Universidade de Passo Fundo (UFP); e Bacharel em Ciência da Computação pela mesma instituição. É líder do Laboratório de Ciência e Inovação para a Educação (InovaEdu) da Fundação IMED, à frente do Letramento em Programação do Instituto Ayrton Senna e do Arranjo do Desenvolvimento da Educação Norte Gaúcho. Além disso, é professor da IMED, pesquisador da Fundação IMED em Pensamento Computacional na Educação por meio da Aprendizagem Ativa e Educação Maker, e senador na Junior Chamber International (JCI).</p>
+            <p class="link-site">Lattes: <a href="http://lattes.cnpq.br/1924119407995975" target="_blank" class="link-2">Acesse o Lattes</a>
+            </p>
+          </div>
+        </div>
+        <div class="autores-coluna w-row">
+          <div class="w-col w-col-4"><img src="images/fragelli-ft.png" width="200" alt="foto autor" class="imagem-autores"></div>
+          <div class="column-6 w-col w-col-8">
+            <p class="nome-participantes">Ricardo Ramos Fragelli</p>
+            <p>Doutor em Ciências Mecânicas pela Universidade de Brasília (UnB); Mestre em Engenharia Mecânica (UnB); e Bacharel em Engenharia Mecânica (UnB). É professor adjunto da UnB dos cursos de Engenharia da Faculdade UnB Gama, do Mestrado Profissional em Matemática e do Programa de Pós-graduação em Design, no qual orienta trabalhos na área de Design Educacional. Por meio de suas pesquisas em novos métodos, técnicas e tecnologias para a Educação, recebeu onze prêmios nacionais de Instituições, como Ministério da Educação (MED), Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (Capes), Associação Brasileira de Educação a Distância (Abed), Associação Brasileira de Mantenedoras de Ensino Superior (ABMES) e Santander Universidades. Suas metodologias ativas e colaborativas são reconhecidas nacionalmente e utilizadas por milhares de professores de todos os níveis educacionais no Brasil.</p>
+            <p class="link-site">Lattes: <a href="http://lattes.cnpq.br/6119310102978688" target="_blank" class="link-2">Acesse o Lattes</a>
+            </p>
+          </div>
+        </div>
+        <div class="div-block-16 line02"></div>
+      </div>
+    </div>
+  </div>
+  <div id="content" class="conteudo">
+    <div id="inicio" class="introducao-trilha2 wf-section">
+      <div class="container-apresentacao w-container">
+        <div class="caixa-modelo2">
+          <div class="div-block line02"></div><img src="images/logo-marca-completa.svg" width="273" alt="" class="logo-sthem-modelo2">
+          <div class="video-div">
+            <div style="padding-top:56.17021276595745%" class="video-2 w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FZhnxIZFsq-w%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DZhnxIZFsq-w&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FZhnxIZFsq-w%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></div><img src="images/player-click-video.svg" loading="lazy" width="180" alt="" class="image-37">
+          </div>
+          <div class="texto apresentacao w-richtext">
+            <h4><strong>Apresentação</strong></h4>
+            <p>Seja bem-vindo(a)! Você está em Secundus e esta é a Trilha 2: Interatividade e Compartilhamento. Como o nome propõe, aqui serão abordados temas relacionados a como melhorar o engajamento dos estudantes, por meio de métodos e ferramentas que usam a interatividade para gerar conexões ricas e significativas em sala de aula.</p>
+            <p>Na sua primeira aventura por este mundo, você caminhará pelas dunas do deserto de Secundus, onde aprenderá os segredos da <strong>Interatividade como potencializadora do engajamento</strong>. Você conhecerá algumas bases teóricas que explicam as mudanças de perfil dos estudantes em um mundo cada vez mais conectado e em transformação. Serão abordados alguns princípios das profundas mudanças sociais, apresentados por Manuel Castells em sua obra <em>A Sociedade em Rede</em>, e como essas mudanças têm reconfigurado o processo de aprendizagem. A seguir, será apresentada uma alternativa de melhoria de engajamento em atividades do cotidiano e, em especial, a educação, propostas pela Teoria do <em>Flow</em>, de Mihaly Csikszentmihalyi. Por fim, nesse tópico, você verá algumas ferramentas e como fazer uso delas em um contexto de potencialização da interação.</p>
+            <p>Em seguida, você encontrará as jazidas do oásis e terá uma <strong>Visão geral da Aprendizagem Ativa</strong>. A partir daí, conhecerá algumas bases epistemológicas da Aprendizagem Ativa sob a lógica do Pragmatismo de John Dewey e sua premissa da Educação pela Experiência. Em seguida, conhecerá as metodologias ativas <em>Peer Instruction</em>, <em>Flipped Classroom</em>, Gamificação e <em>Game Based Learning</em>, com vários materiais extras para aprofundar-se e aplicar as metodologias.</p>
+            <p>Por fim, nas poças de elixir de Secundus, você observará as miragens e aprenderá sobre <strong>Interatividade em comunidades participativas</strong>. Serão trabalhadas as metodologias que envolvem a colaboração entre os estudantes, por meio da formação de pequenos grupos. Como exemplo deste tipo de estratégia pedagógica, você verá a Aprendizagem Baseada em Equipes, mais conhecida pelo termo em inglês <em>Team Based Learning </em>(TBL), criada por Larry Michaelsen na década de 1970, e que é utilizada em todo o mundo. A TBL é uma metodologia que envolve uma inversão inicial da sala de aula, em que os estudantes realizam o estudo prévio dos conceitos e, na sala de aula, há o aprofundamento com base em avaliações individuais, avaliações em equipe, deliberação de conceitos e aplicação em situações contextualizadas. </p>
+            <p>A outra estratégia escolhida como exemplo da aprendizagem por meio de grupos colaborativos é o método Trezentos, iniciado com base em uma avaliação de aprendizagem e no qual são criados grupos potencialmente colaborativos. Após, são especificadas metas individuais e coletivas a serem realizadas em prazo determinado, tendo prosseguimento em reavaliação e aplicação de escalas de níveis de ajuda. Ao final, são indicadas algumas ferramentas digitais e possibilidades de aplicação.</p>
+            <p>Bons estudos!<br></p>
+          </div>
+          <div class="div-block line02"></div>
+        </div>
+      </div>
+    </div>
+    <div id="inicio-trilha1" class="section wf-section"><img src="images/logo-marca-completa.svg" width="219" alt="" class="image"></div>
+    <div id="sumario" class="section-sumario-trilha2 wf-section">
+      <div class="container-14 w-container">
+        <div class="div-sumario">
+          <h1 class="titulo-sum-rio"><strong>Sumário</strong></h1>
+          <div class="div-block-22">
+            <a href="#t2-top1" class="topicos">Tópico 1 - Interatividade como potencializadora do engajamento</a>
+            <a href="#t2-top2" class="topicos">Tópico 2 - Visão geral da Aprendizagem Ativa</a>
+            <a href="#t2-top3" class="topicos">Tópico 3 - Interatividade em ambientes colaborativos</a>
+            <a href="#" class="topicos">Referências</a>
+            <a href="#" class="topicos">Recapitulando</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="audiolivro" class="audiobook-content">
+      <div class="w-container"><img src="images/audiobook.svg" width="400" alt="" class="image-16">
+        <div class="podcast-player">
+          <div class="player-b42 w-embed">
+            <div class="media-wrapper audio-player">
+              <audio preload="none" controls="" style="max-width:100%; display: none;">
+                <source src="audios/AB-T2.mp3" type="audio/mp3">
+              </audio>
+            </div>
+          </div>
+        </div><img src="images/clique-audiobook.svg" loading="lazy" width="200" alt="" class="image-35">
+      </div>
+    </div>
+    <div id="t1-u01" class="secao-s wf-section">
+      <div id="t2-top1" class="capa-topico">
+        <div class="container-5 w-container">
+          <div class="div-block-8">
+            <p class="numero-topico">TÓPICO 1</p>
+          </div>
+          <h1 class="titulo-topico">Interatividade como potencializadora do engajamento</h1>
+        </div>
+      </div>
+      <div class="w-container">
+        <div class="video-div">
+          <div style="padding-top:56.17021276595745%" class="video-2 w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2Ffr6oaE96VE8%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dfr6oaE96VE8&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2Ffr6oaE96VE8%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></div><img src="images/player-click-video.svg" loading="lazy" width="180" alt="" class="image-37">
+        </div>
+        <div class="texto sem-espaco-bottom w-richtext">
+          <h2>‍<strong>Da escassez para a abundância: do aprendiz passivo ao engajado</strong></h2>
+          <p>Não há dúvidas de que a sociedade está em grande transformação, e isso acontece desde o século passado. No livro <em>A Terceira Onda</em> (TOFFLER, 1980), o autor desenha uma mudança previsível que iniciou na revolução da agricultura (800 a. C.) até o século 21, com a Revolução da Informação. Mais tarde, Manuel Castells lançou <em>A Sociedade em Rede</em> (CASTELLS, 1996), que faz uma profunda reflexão sobre os impactos da nova dinâmica econômica e social da nova era da informação, formulando uma teoria que estrutura os efeitos fundamentais da tecnologia da informação no mundo contemporâneo.</p>
+          <p>Manuel Castells Oliván é um sociólogo espanhol. Entre 1967 e 1979, ele lecionou na Universidade de Paris, primeiro no <em>campus</em> de Nanterre e, em 1970, na École des Hautes Études en Sciences Sociales. Na referida obra, ele aponta que, na Era da Informação, existe uma reconfiguração social de um modelo antes centralizado e escasso, para um modelo interconectado, descentralizado e abundante, que modifica profundamente a dinâmica de poder e, com ela, a economia, a sociedade e a cultura. Nessa lógica, é criada uma rede que se autoconfigura, com padrões próprios de comunicação e arranjo social.</p>
+          <p>O autor apresenta a ideia de &quot;capitalismo informacional&quot;, que inaugura um modelo de geração de riqueza baseado no processamento de dados que geram informação e conhecimento, com uma estrutura flexível, dinâmica e autorregulada de escolher o que tem valor e excluir o que não tem. Toda essa estrutura tende a um formato de desintermediação, conectando autores e consumidores em uma rede com múltiplos papéis e baseada na personalização (CASTELLS, 1996).</p>
+        </div>
+        <p class="texto sem-espaco-top">Em tal cenário, a educação também se transforma. Antes, baseada na centralização e escassez – com o professor como o provedor do conhecimento – para reconfigurar-se em um modelo baseado na descentralização e abundância –<span class="destaque-texto"> em que o professor tem o papel de <strong>facilitador</strong>.<br>‍<br></span>No novo modelo, as metodologias baseadas em transmissão de conhecimento já não têm valor, pois um professor não pode competir com a rede em volume, diversidade ou riqueza de informações. <span>Ou seja, o </span><span class="destaque-texto">modelo mental do aprendiz passivo e receptor está em extinção</span><span class="destaque">. </span>As redes sociais, os aplicativos e as plataformas de conteúdo se qualificam cada vez mais e promovem a desintermediação na aprendizagem. Isso explica o abandono sucessivo da educação formal baseada em métodos expositivos e conteudistas. <br><br>No lugar disso, são promovidos métodos e processos baseados na <strong>Aprendizagem Ativa</strong>, em que o aprendiz se integra na rede como consumidor e, também, autor, responsável e autônomo, fluente em competências socioemocionais e cognitivas, com a mentalidade da descentralização e abundância, engajado na sua aprendizagem. Mas como promover engajamento se os aprendizes parecem estar se afogando em uma enxurrada de informação, muitas de qualidade, outras nem tanto, com um olhar ansioso e superficial, com pouca reflexão e muita volatilidade? Entre tantas respostas possíveis, a Teoria do <em>Flow</em> parece apontar um caminho, e você verá mais sobre ela a seguir.</p>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2"><img src="images/saiba-icone-trilha02.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Não deixe de assistir à transmissão do canal &quot;Sociologia Animada&quot; sobre &quot;Sociedade em rede, Educação e Indústria Cultural&quot;. </p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://youtu.be/YaeqnQccLFs?t=193" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <h3>A Teoria do <em>Flow</em> como estratégia para gerar engajamento</h3>
+          <p><strong>‍</strong>A Psicologia Positiva se propõe a estudar o potencial humano, sem o foco em suas enfermidades. Felicidade, satisfação e motivação são alguns temas recorrentes entre seus pesquisadores. Boa parte deles trata o tema do engajamento pessoal como central em um processo de motivação, autonomia e autorrealização. Um dos grandes pesquisadores sobre esses temas é o psicólogo <strong>Mihaly Csikszentmihalyi</strong>, cujo principal legado é sobre felicidade, criatividade, bem-estar e diversão. Todavia, seu trabalho mais famoso é a criação da <strong>Teoria do Fluxo</strong>, conhecida como <strong><em>Flow</em></strong>, fruto de uma pesquisa de décadas com intervenções em vários momentos do dia a dia das pessoas (CSIKSZENTMIHALYI, 1999).</p>
+        </div>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2">
+            <div class="container-box01 sem-box">
+              <div class="columns-7 w-row">
+                <div class="foto-cluna w-col w-col-4"><img src="images/Mihaly_Csikszentmihalyi.jpg" loading="lazy" width="250" alt="">
+                  <p class="paragraph-7">Figura 1- Mihaly Csikszentmihalyi | Fonte: Wikimedia Commons (2010, <em>on-line</em>).</p>
+                </div>
+                <div class="w-col w-col-8">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <h4>Mihaly Csikszentmihalyi </h4>
+                      <p>Nasceu na Hungria em 1934, é professor de Psicologia na Universidade de Claremont, na Califórnia, e foi chefe de departamento de Psicologia da Universidade de Chicago e do departamento de Sociologia e Antropologia da Universidade Lake Forest. </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-bottom w-richtext">
+          <p>A principal pesquisa de Csikszentmihalyi, que deu origem à Teoria do <em>Flow</em>, foi iniciada na década de 1970, quando ele desenvolveu o <em>Experience Sampling Method</em> (ESM), traduzido como Método de Amostragem de Experiência, para compreender, em vários momentos do dia, o que as pessoas estavam fazendo, onde estavam, com quem estavam, em que estavam pensando, e, em uma escala numérica, qual era seu grau de felicidade, concentração, motivação e autoestima. Por meio de um <a href="#" data-w-id="f3ef0025-ca08-9152-17a0-ca6da6409661"><em>pager</em></a>, os indivíduos da pesquisa recebiam um bipe, em horários aleatórios, e precisavam registrar em que situação se encontravam, coletando centenas de milhares de respostas em várias universidades do mundo (CSIKSZENTMIHALYI, 2004).</p>
+          <p>Essa pesquisa revelou algo interessante: várias pessoas, de diferentes níveis sociais e idades, em momentos diferentes de lazer ou trabalho, registraram alto grau de felicidade ao estarem envolvidas na criação de algo, e, ainda, centenas delas revelaram características em comum, como perda da noção de tempo, alta excitação e alto grau de motivação intrínseca. Os resultados mostram que elas estavam envoltas em um momento diferenciado, altamente conduzidas pela criatividade e com forte motivação, e que o processo acontecia de forma sistemática se as mesmas pessoas repetissem as mesmas coisas, porém as atividades poderiam acontecer em momentos diferenciados, como o lazer, a produção artística e até em trabalhos repetitivos e, aparentemente, enfadonhos. Tal processo foi denominado fluxo, por compreender que era uma sequência de experiências demonstráveis e reproduzíveis em que, se os mesmos estímulos fossem ofertados, formariam um fluxo previsível (CSIKSZENTMIHALYI, 1999).</p>
+        </div>
+        <p class="texto sem-espaco-top">Quando atividades com alta motivação, seja intrínseca, seja extrínseca, são combinadas com baixo esforço e sentimento de realização, seja em atividade de lazer ou trabalho duro, mas desafiador e com valor pessoal, o momento fica repleto de experiências em harmonia entre o sentir, o pensar e o desejar. Esse momento é a experiência de <em>flow</em> ou estado de experiência ótima, descrito pela pesquisa como <span class="destaque-texto">momento de auge, êxtase ou enlevo estético, combinando metas alcançáveis com regras claras, muito conhecido em jogos de esporte, desafios lógicos e até resolução de problemas,</span> sendo possível o indivíduo agir sem precisar questionar o que deve ser feito e como fazê-lo, focando sua energia psíquica na <strong>resolução da atividade</strong>.<br><br>Outra importante característica de atividade de <em>flow</em> é a possibilidade de receber <em>feedback</em> imediato de seu desempenho, permitindo a cada movimento compreender se melhorou, ou não, em direção à meta estabelecida, como em um jogo em que a pontuação ou o alcance de um objetivo dá sinais claros de que o caminho escolhido é certo e que, com certa previsibilidade, sua meta será alcançada em alguns movimentos. Para que o <em>flow </em>ocorra, é preciso ter equilíbrio entre altas habilidades em executar algum tipo de atividade e altos níveis de desafios para atingir a meta de concluir a atividade por motivação pessoal ou externa, como demonstra a figura:</p>
+        <div class="imagem-legenda"><img src="images/t2-fig02.svg" width="600" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 2 - Relação entre desafio e habilidade para a Teoria do <em>Flow</em> | Fonte: adaptada de Csikszentmihalyi (1999 apud MARTINS; TEIXEIRA, 2019, p. 76).</p>
+        </div>
+        <p class="texto sem-espaco-top">Você pode estar se perguntando: “Mas este curso não era sobre Competências Digitais do professor?”. Exato! A grande questão aqui é que Csikszentmihalyi descobriu que “a experiência de fluxo age com um ímã para o aprendizado – isto é, para o desenvolvimento de novos níveis de desafios e habilidades” (1999, p. 39), gerando um ciclo virtuoso de gosto pelo aprender. Ou seja, <span class="destaque-texto">o <em>flow </em>é a chave para o engajamento dos estudantes na ideia de aprender a aprender, ou <em>lifelong learning</em>, sendo a base de todas as metodologias ativas, exatamente por explicar como ocorre a mudança de papel de passividade para autonomia do aprendiz.</span><br><br>Então, como fazer os estudantes alcançarem o <em>flow</em> nas atividades? Observe a seguir duas dicas de ouro (MARTINS, 2019):</p>
+        <div data-hide="1" class="acoredeon">
+          <div class="acordeon-box-2">
+            <div class="acordeoni-item">
+              <div class="plus-wrap">
+                <div class="plus-l vermelho"></div>
+                <div class="plus vermelho"></div>
+              </div>
+              <div class="acoredeon-titulo-2 vermelho">1) Metas claras e<em> feedback</em> imediato</div>
+            </div>
+            <div class="acordeon-conteudo">
+              <p class="acordeon-conteudo-texto">Com metas claras e alcançáveis, assim como <em>feedback </em>incremental e imediato, os estudantes são conectados na seta amarela da figura. Eles precisam saber onde chegarão, quais os possíveis caminhos, e receberão, assim como nos jogos de <em>videogame</em>, <em>feedback </em>constante de seu desempenho. Cada construção de conhecimento deve estar próxima de seu processo avaliativo, nada de avaliações distantes e enormes que só favorecem a memorização.</p>
+            </div>
+          </div>
+          <div class="acordeon-box-2">
+            <div class="acordeoni-item">
+              <div class="plus-wrap">
+                <div class="plus-l vermelho"></div>
+                <div class="plus vermelho"></div>
+              </div>
+              <div class="acoredeon-titulo-2 vermelho"><strong>2) Equilíbrio entre habilidade e desafio</strong></div>
+            </div>
+            <div class="acordeon-conteudo">
+              <p class="acordeon-conteudo-texto">Em qualquer nível de intensidade, o equilíbrio entre habilidade e desafio pode gerar estado de <em>flow</em>. Quando o desafio é maior do que a habilidade, há um cenário de ansiedade, o que gera abandono. Neste caso, mais apoio, exercício e estudo voltam a equilibrar a relação. Em contrapartida, quando há presença maior de habilidade do que de desafio, há uma configuração de certeza de controle, que gera desinteresse. Já neste caso, é hora de aumentar o desafio ou oferecer um papel diferente ao estudante. Na prática, metodologias que proponham desafio incremental, pontos de verificação constantes e grupos heterogêneos terão melhor resultado com os estudantes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2"><img src="images/saiba-icone-trilha02.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Confira um <em>podcast</em> sobre Teoria do <em>Flow</em> e criatividade. </p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://papodeeducador.com.br/pde32-criatividade/" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Que tal assistir o próprio Csikszentmihalyi explicando sobre a Teoria do <em>Flow</em> em sua TED Talks?</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://www.ted.com/talks/mihaly_csikszentmihalyi_flow_the_secret_to_happiness?language=pt-br" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Conheça mais sobre a Teoria do <em>Flow</em> na educação por meio do artigo “A Descoberta do Flow na Educação – Como a Criatividade Pode Transformar a Escola”.</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://www.researchgate.net/publication/343514123_A_DESCOBERTA_DO_FLOW_NA_EDUCACAO_COMO_A_CRIATIVIDADE_PODE_TRANSFORMAR_A_ESCOLA" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-bottom w-richtext">
+          <p>E aí, você gostou de conhecer a Teoria do <em>Flow</em>? Que tal pensar em estratégias de aprendizagem que usem o <em>flow</em> e as metodologias ativas para tornar o estudante mais autônomo e apaixonado por aprender a aprender? A seguir, você conhecerá algumas ferramentas digitais que promovem interações ricas, engajadoras, divertidas e repletas de significado pessoal.<br></p>
+          <h3>Ferramentas digitais de interação</h3>
+          <p>Agora, chegou o momento de conhecer algumas propostas de uso de ferramentas digitais em um contexto de potencialização da interação. Será apresentada uma breve introdução sobre cada ferramenta com <em>links </em>para tutoriais, pois, a partir de agora, a ideia é que você busque aprender sozinho(a), se ainda não sabe utilizá-las.</p>
+          <h3><strong>Kahoot!</strong></h3>
+          <p>O <a href="https://kahoot.com/" target="_blank">Kahoot</a>! é uma plataforma de aprendizado lançada em 2013 que possuía 40 milhões de usuários ativos mensais em 2017. É baseada em jogos e utilizada como tecnologia educacional em escolas e outras instituições de ensino. Seus jogos de aprendizado, &quot;Kahoots&quot;, são testes de múltipla escolha que permitem a geração de usuários e podem ser acessados por meio de um navegador da <em>web</em> ou do aplicativo Kahoot!.(WIKIPÉDIA, [2020], <em>on-line</em>).</p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t2-fig03.png" width="808" sizes="(max-width: 479px) 85vw, (max-width: 767px) 90vw, (max-width: 991px) 648px, 808px" srcset="images/t2-fig03-p-500.png 500w, images/t2-fig03-p-800.png 800w, images/t2-fig03-p-1080.png 1080w, images/t2-fig03-p-1600.png 1600w, images/t2-fig03.png 1920w" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 3 - Interface do Kahoot! | Fonte: Kahoot ([2020], <em>on-line</em>).</p>
+        </div>
+        <div class="texto sem-espaco-bottom w-richtext">
+          <p><strong>Uso da ferramenta para interação</strong>: Existem vários usos possíveis da ferramenta, por isso, explore seus recursos. Uma possibilidade bastante simples, mas muito eficiente, é usar a modalidade <em>Quiz</em> para fazer um fechamento de algum tópico trabalhado, como forma de avaliar a compreensão dos estudantes. É bastante interessante executar uma pergunta por vez e, após a finalização de cada pergunta, pedir para que algum estudante explique por que escolheu tal resposta correta, reforçando a relação com o conteúdo. Da mesma forma, explicar as demais incorretas e qual o motivo para isso. O Kahoot! gera alto engajamento e diversão, colocando em prática todos os fundamentos da Teoria do <em>Flow</em>.</p>
+        </div>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2"><img src="images/saiba-icone-trilha02.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Para mais informações, assista ao vídeo “KAHOOT: Como usar nas aulas presenciais ou online”.</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://www.youtube.com/watch?v=6MWUMYmAImo" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-bottom w-richtext">
+          <h3><strong>Mentimeter</strong></h3>
+          <p>O <a href="https://www.mentimeter.com/" target="_blank">Mentimeter </a>é uma plataforma de apresentações <em>on-line</em> interativas, que permite criar <em>slides</em> dinâmicos, questões, enquetes, <em>quizzes</em>, entre outros, recebendo <em>feedback</em> imediato durante a apresentação, como uma apresentação de <em>slides</em> estilo Microsoft PowerPoint, mas com várias ferramentas e interações <em>on-line</em>.</p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t2-fig04.png" width="829" sizes="(max-width: 479px) 85vw, (max-width: 767px) 90vw, (max-width: 991px) 648px, 820px" srcset="images/t2-fig04-p-500.png 500w, images/t2-fig04-p-800.png 800w, images/t2-fig04-p-1080.png 1080w, images/t2-fig04-p-1600.png 1600w, images/t2-fig04.png 1920w" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 4 - Interface do Mentimeter | Fonte: Mentimeter ([2020], <em>on-line</em>).</p>
+        </div>
+        <div class="texto sem-espaco-bottom w-richtext">
+          <p><strong>Uso da ferramenta para interação</strong>: Entre seus principais usos estão a apresentação de tópicos e atividades com interação e <em>feedbacks</em> imediatos. Um uso simples e significativo é fazer uma nuvem de palavras antes de apresentar o conteúdo ou tópico, registrar a nuvem construída pelos estudantes e executar a mesma atividade no final, refletindo sobre a diferença entre as duas e a relação do aprendizado dos estudantes. Outro uso bastante interessante é apresentar conteúdos originalmente expositivos e extensos de forma leve e interativa, fazendo blocos com apresentação e interações, como enquetes e <em>quizzes</em>.</p>
+        </div>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2"><img src="images/saiba-icone-trilha02.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Para mais informações, assista ao vídeo: “MENTIMETER: Como fazer EXERCÍCIOS ONLINE e em TEMPO REAL”.</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://www.youtube.com/watch?v=4gl8v9sPO0M" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <h3><strong>Padlet</strong></h3>
+          <p>O <a href="https://pt-br.padlet.com/" target="_blank">Padlet</a> “[...] é uma ferramenta online que permite a criação de um mural ou quadro virtual dinâmico e interativo para registrar, guardar e compartilhar conteúdos multimídia. Funciona como uma folha de papel, onde se pode inserir qualquer tipo de conteúdo (texto, imagens, vídeo, hiperlinks) juntamente com outras pessoas” (INOVAEH, 2018, p. 2).</p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t2-fig05.png" width="847" sizes="(max-width: 479px) 85vw, (max-width: 767px) 90vw, (max-width: 991px) 648px, 820px" srcset="images/t2-fig05-p-500.png 500w, images/t2-fig05.png 1006w" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 5 - Interface do Padlet | Fonte: Padlet ([2020], <em>on-line</em>).</p>
+        </div>
+        <div class="texto sem-espaco-bottom w-richtext">
+          <p><strong>Uso da ferramenta para interação</strong>: Por ser uma ferramenta de mural interativo e dinâmico, pode ser usada para criação de conceitos ou registro de pesquisas de forma coletiva e interativa. Uma utilização bastante interessante é dividir sua turma em grupos, que pesquisarão um conceito ou tema de um assunto único ou relacionado. Cada participante deverá interagir com seu grupo na construção da sua parte do mural, mas conseguirá acompanhar <em>on-line</em> a construção de todos. Ao final, várias atividades de reflexão podem ser feitas, como apresentação geral dos conceitos por cada grupo e criação de conexão entre os conceitos pelos estudantes. Além disso, após a atividade, há todo o registro para consulta ou insumo para outra atividade.</p>
+        </div>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2"><img src="images/saiba-icone-trilha02.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Confira o “Tutorial Padlet”, da Secretaria Geral de Educação a Distância da Universidade Federal de São Carlos (UFSCar).</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://inovaeh.sead.ufscar.br/wp-content/uploads/2019/04/Tutorial-Padlet.pdf" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="t1-u02" class="secao-s wf-section">
+      <div id="t2-top2" class="capa-topico">
+        <div class="container-5 w-container">
+          <div class="div-block-8">
+            <p class="numero-topico">TÓPICO 2</p>
+          </div>
+          <h1 class="titulo-topico">Visão geral da aprendizagem ativa</h1>
+        </div>
+      </div>
+      <div class="w-container">
+        <div class="video-div">
+          <div style="padding-top:56.17021276595745%" class="video-2 w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FfctpLxMYkVU%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DfctpLxMYkVU&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FfctpLxMYkVU%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></div><img src="images/player-click-video.svg" loading="lazy" width="180" alt="" class="image-37">
+        </div>
+        <div class="texto sem-espaco-bottom w-richtext">
+          <h2><strong>As metodologias ativas e o protagonismo do estudante<br></strong></h2>
+        </div>
+        <p class="texto sem-espaco-top">Com base na ideia de interação e<em> flow</em>, para potencializar o engajamento e o protagonismo dos estudantes, a Aprendizagem Ativa propõe a autonomia e a autogestão do aluno, que se torna protagonista de sua história e de sua aprendizagem, de modo a resolver desafios e problemas, desenvolver projetos e criar seus caminhos para aproveitar as oportunidades para a sua própria construção de conhecimento, do seu jeito, no seu tempo. <span class="destaque-texto">São conhecidas como metodologias ativas as estratégias de aprendizagem que fazem uso dessas premissas, em que a experiência rica e com significado pessoal é o cerne do processo.</span><br><br>A principal oposição aqui é quanto à aprendizagem passiva ou conteudista, na qual o estudante senta e escuta, e é baseada na transmissão de conteúdo de um provedor (professor) para dezenas de estudantes ao mesmo tempo, no mesmo formato e apoiada na lógica de <em>broadcast</em>, isto é, de transmissão. Neste caso, o cerne do processo é o conteúdo, em vez da experiência que ele promove.<br><br>Metodologias ativas não são novas e possuem forte relação com a Educação Progressiva, de John Dewey. Sua teoria é conhecida como Educação Progressiva, sendo um de seus principais objetivos <span class="destaque-texto">educar a criança como um todo, valorizando o crescimento físico, emocional e intelectual em detrimento de conhecimentos puramente técnicos, adquiridos com base na repetição, que, de forma incerta, poderão servir para o seu futuro.</span> Para Dewey e a corrente filosófica do pragmatismo, as ideias somente têm importância desde que sirvam de instrumento para a resolução de problemas reais e, de preferência, com valor pessoal e contexto dos estudantes (DEWEY, 2010).<br><br>A educação, na visão deweyana, é uma constante reconstrução da experiência, de forma a dar-lhe cada vez mais sentido e a habilitar as novas gerações, para que respondam aos desafios da sociedade. Educar, portanto, é mais do que reproduzir conhecimentos, é incentivar o desejo de desenvolvimento contínuo, preparar pessoas para transformar algo, com uma prática docente fundamentada na liberdade do aluno para elaborar as suas próprias certezas, os seus próprios conhecimentos e as suas próprias regras morais, não reduzindo à relevância do currículo ou aos saberes do educador (DEWEY, 2010).<br><br>Esse desejo de desenvolvimento e transformação por meio da liberdade e autonomia do estudante formam a base das metodologias ativas, que colocam o aprendiz e sua experiência no centro do processo, tornando o conteúdo um insumo para a experiência, em que o professor assume o papel de mentor, facilitador e problematizador.<br><br>A seguir, você conhecerá algumas metodologias ativas e sua lógica de funcionamento.</p>
+        <div class="imagem-ilustrativa"><img src="images/t2-ft01.jpg" loading="lazy" sizes="(max-width: 479px) 96vw, (max-width: 767px) 97vw, (max-width: 991px) 708px, 920px" srcset="images/t2-ft01-p-800.jpeg 800w, images/t2-ft01-p-1600.jpeg 1600w, images/t2-ft01.jpg 1920w" alt="" class="foto-ilustrativa"></div>
+        <div class="texto sem-espaco-bottom w-richtext">
+          <h3><strong><em>Peer Instruction</em><br></strong></h3>
+        </div>
+        <p class="texto sem-espaco-top">O <em>Peer Instruction</em> é uma metodologia ativa criada nos anos 1990 por Eric Mazur, professor de Física da Universidade Harvard. Essa metodologia, que ganhou o nome de <span class="destaque-texto"><strong>Aprendizagem por Pares</strong></span>, em português, propõe um ensino interativo baseado em evidências. Ao contrário das aulas da época, que eram feitas em auditórios em formato de palestra, Mazur propôs que estudantes discutissem entre eles, ajudando uns aos outros no entendimento dos conceitos, para, só depois, serem conduzidos pelo professor no aprofundamento dos temas com questões dirigidas, seguindo etapas básicas. Observe-as a seguir.</p>
+        <div class="imagem-legenda"><img src="images/T2-info01.svg" width="960" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 6 - Aprendizagem por Pares |Fonte: adaptada de Pinto (2019, <em>on-line</em>).</p>
+        </div>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2"><img src="images/saiba-icone-trilha02.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Confira o texto “O que é Peer Instruction e como aplicá-la?”.</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://blog.lyceum.com.br/o-que-e-peer-instruction/" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Assista ao vídeo em que Eric Mazur comenta sobre o <em>Peer Instruction</em>. A versão sem legenda também está disponível no YouTube.</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://www.youtube.com/watch?v=iCDXyIrYNS8" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-bottom w-richtext">
+          <h3><strong><em>Flipped Classroom</em></strong></h3>
+          <p>O <em>Flipped Classroom</em> é uma metodologia ativa popularizada em 2007 pelos professores Jonathan Bergman, Karl Fisch e Aaron Sams. Em português, é conhecida como <strong>Sala de Aula Invertida</strong> e é fortemente baseada no ensino híbrido. Propõe a divisão da aula em três momentos: (1.º) consumo de material em plataformas <em>on-line</em>, de forma assíncrona e antes da aula, no tempo e espaço do estudante; (2.º) atividades, desafios e construções presenciais e síncronas, no tempo da aula; (3.º) avaliações, reforços e complementos podem ser feitos em aula ou em plataformas, de forma assíncrona após a aula presencial (CARVALHO, 2018, <em>on-line</em>). <strong><br></strong></p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t2-fig05.svg" width="846" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 7 - Sala de aula tradicional e Sala de Aula Invertida | Fonte: adaptada de Blog Mundo Maker (2020, <em>on-line</em>).</p>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <p>Daí vem a ideia de “invertida”: os estudantes consomem conteúdo em casa, podem voltar o vídeo da explicação, reler o conteúdo quantas vezes acharem necessário, aplicar, refletir, debater e criar artefatos no “horário de aula”, maximizando e otimizando o tempo precioso com seus colegas.<strong><br></strong></p>
+        </div>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2"><img src="images/saiba-icone-trilha02.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Ouça o episódio “Invertendo a sala de aula com Jon Bergmann”, do <em>podcast</em> Papo de Educador. </p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://papodeeducador.com.br/invertendo-a-sala-de-aula-com-jon-bergmann-pde-99/" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Confira o texto “Como funciona a sala de aula invertida?”.</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://www.edools.com/sala-de-aula-invertida/" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Assista ao vídeo “Sala de Aula Invertida”, do canal do Núcleo de Tecnologia Educacional da Universidade Federal de Santa Maria (UFSM).</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://youtu.be/p-s28FKdccU" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-top w-richtext">
+          <h3><strong>Gamificação e <em>Game Based Learning</em></strong></h3>
+          <p>Apesar de não terem o mesmo significado, ainda existe bastante confusão. Gamificação é a ideia de usar estratégias de jogos em ambientes não relacionados a jogos, ou seja, usar a mecânica de jogos, como pontos, medalhas, vantagens, missões, <em>scores</em> ou quadro de líderes, em sistemas que estão fora de um jogo, podendo ser uma empresa, processo de produção ou de aprendizagem. Já o <em>Game Based Learning</em>, ou <strong>Aprendizagem Baseada em Jogos</strong>, em português, trata do uso de um jogo, seja físico, seja digital, para apoio na aprendizagem (BURKE, 2015).</p>
+          <p>A gamificação é embasada em conceitos de aplicação de técnicas para que consiga obter o resultado desejado ao final de suas atividades, sendo três os principais pilares em que se estabelece. Observe-os a seguir.<strong><br></strong></p>
+        </div>
+        <div class="infografico-acordeon cor-t2">
+          <div class="titulo-info">
+            <h1 class="heading-2 cor-t2">Os três principais pilares<br>‍<strong>da gamificação</strong></h1>
+            <p class="instrucoes-texto">Clique nos itens a seguir para saber mais:</p>
+          </div>
+          <div class="container-acordeon">
+            <div class="acordeon">
+              <div class="acordeon-box">
+                <div class="acordeoni-item-infografico cor-t2">
+                  <div class="icon-acordeon"><img src="images/t2-icon02.svg" width="44" alt="" class="image-17"></div>
+                  <div class="acoredeon-titulo"><strong>Pontos</strong></div>
+                </div>
+                <div class="acordeon-conteudo-infografico cor-t2">
+                  <div class="acordeon-conteudo-texto-infografico w-richtext">
+                    <p>Os pontos são adquiridos quando o participante executa uma tarefa bem-sucedida. Estão, diretamente, ligados à motivação do usuário em realizar as atividades, para que consiga, assim, pontuar.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="acordeon-box">
+                <div class="acordeoni-item-infografico cor-t2">
+                  <div class="icon-acordeon"><img src="images/t2-icon01.svg" width="44" alt="" class="image-17"></div>
+                  <div class="acoredeon-titulo"><strong>Quadro de líderes</strong></div>
+                </div>
+                <div class="acordeon-conteudo-infografico cor-t2">
+                  <div class="acordeon-conteudo-texto-infografico w-richtext">
+                    <p>De acordo com o avanço de pontos, o participante fica cada vez mais bem posicionado no <em>ranking</em>. Esta técnica começa a aguçar a capacidade dos usuários de superar desafios e competir.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="acordeon-box">
+                <div class="acordeoni-item-infografico cor-t2">
+                  <div class="icon-acordeon"><img src="images/t2-icon03.svg" width="44" alt="" class="image-17"></div>
+                  <div class="acoredeon-titulo"><strong>Troféus</strong></div>
+                </div>
+                <div class="acordeon-conteudo-infografico cor-t2">
+                  <div class="acordeon-conteudo-texto-infografico w-richtext">
+                    <p>Gratificação, isto é, premiação por um alto desempenho. Melhor qualificação significa remuneração, o que serve de incentivo.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><img src="images/t2-bg01.png" width="680" alt="" class="image-18">
+        </div>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2"><img src="images/saiba-icone-trilha02.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Ouça o episódio “Jogos cooperativos e gamificação”, também do <em>podcast</em> Papo de Educador. </p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://papodeeducador.com.br/jogos-cooperativos-e-gamificacao-pde-81/" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Assista ao vídeo “Gamificação para coisas extraordinárias”, do canal Universidade Andarilho.</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://youtu.be/UI4ZhYwI9F0" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Confira o livro <em>Gamificação na Educação</em>, trabalho organizado por Luciane Maria Fadel, Vania Ribas Ulbricht, Claudia Batista e Tarcísio Vanzin, e publicado pela editora Pimenta Cultural, em 2014.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2"><img src="images/saiba-icone-trilha02.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Para aprofundar os conhecimentos sobre a Aprendizagem Ativa e as metodologias ativas na educação, conheça os demais cursos do STHEM Brasil:</p>
+                      <p>Programa EAD Sthem Brasil de Metodologias Ativas – <strong>PBL</strong></p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://www.semesp.org.br/uc/curso/programa-ead-sthem-brasil-de-metodologias-ativas-pbl/" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Programa EAD Sthem Brasil de Metodologias Ativas – <strong>Flipped Classroom</strong></p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://www.semesp.org.br/uc/curso/programa-ead-sthem-brasil-de-metodologias-ativas-flipped-classrom/" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Programa EAD Sthem Brasil de Metodologias Ativas – <strong>Peer Instruction</strong></p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://www.semesp.org.br/uc/curso/programa-ead-sthem-brasil-de-metodologias-ativas-peer-instruction/" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Programa EAD Sthem Brasil de Metodologias Ativas – <strong>Team Based Learning</strong></p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://www.semesp.org.br/uc/cursos/?tipo=sthembrasil" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="t2-03" class="secao-s wf-section">
+      <div id="t2-top3" class="capa-topico">
+        <div class="container-5 w-container">
+          <div class="div-block-8">
+            <p class="numero-topico">TÓPICO 3</p>
+          </div>
+          <h1 class="titulo-topico">Interatividade em ambientes colaborativos</h1>
+        </div>
+      </div>
+      <div class="w-container">
+        <div class="video-div">
+          <div style="padding-top:56.17021276595745%" class="video-2 w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FkzXOTPetjLk%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DkzXOTPetjLk&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FkzXOTPetjLk%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></div><img src="images/player-click-video.svg" loading="lazy" width="180" alt="" class="image-37">
+        </div>
+        <div class="texto w-richtext">
+          <h2><strong>Aprendizagem colaborativa</strong></h2>
+          <p>Como visto no primeiro tópico desta trilha, a interação pode ser um elemento potencializador do engajamento, e este, por sua vez, é fator primordial para a aprendizagem significativa. No entanto, há outros caminhos para o desenvolvimento de competências inter e intrapessoais. Um deles é o da aprendizagem colaborativa, caracterizada pela pedagogia de trabalho em pequenos grupos, os quais primam pelo diálogo e pela construção do conhecimento. </p>
+          <p>De modo geral, é altamente motivadora aos estudantes, visto que possui elementos de interação social e diálogo, em que o tradicional ambiente da emissão – hierárquico, autoritário e passivo – é substituído pelo ambiente de facilitação – construtivo, igualitário e de liberdade. Nesse tipo de abordagem educacional, os membros se percebem como integrantes de uma comunidade de conhecimento, de modo que constroem, coletivamente, suas descobertas e impressões, compartilham, dialogam e chegam a consensos (TORRES; ALCANTARA; IRALA, 2004).</p>
+          <p>A aprendizagem colaborativa com suporte computacional também é estudada há bastante tempo, como indica uma revisão histórica realizada por Stahl, Koschmann e Suthers (2006). Os autores apresentam resultados que mostram a aprendizagem em pequenos grupos, mediada pela tecnologia, sendo utilizada desde a pré-escola à pós-graduação e, em especial, potencializada pela internet a partir dos anos 1990. Eles defendem a utilização de pequenos grupos como as melhores unidades de investigação para o estudo da construção do significado intersubjetivo – chamada de cognição em grupo –, que é a aprendizagem construída somente na interação social, vetor do desenvolvimento das competências sociais.</p>
+          <p>Há um número expressivo de estratégias pedagógicas que utilizam a colaboração como aspecto fulcral da aprendizagem, como aprendizagem baseada em problemas, aprendizagem baseada em projetos e os estudos de caso. A seguir são mostradas duas estratégias interessantes para explorar o potencial das abordagens educacionais colaborativas: a Aprendizagem Baseada em Equipes e o método Trezentos.</p>
+        </div>
+        <div class="imagem-ilustrativa"><img src="images/t2-ft02.jpg" loading="lazy" sizes="(max-width: 479px) 96vw, (max-width: 767px) 97vw, (max-width: 991px) 708px, 920px" srcset="images/t2-ft02-p-500.jpeg 500w, images/t2-ft02-p-800.jpeg 800w, images/t2-ft02-p-1600.jpeg 1600w, images/t2-ft02.jpg 1920w" alt="" class="foto-ilustrativa"></div>
+        <div class="texto sem-espaco-top w-richtext">
+          <h2><strong><em>Team Based Learning</em> (TBL)</strong></h2>
+          <p>A <strong>Aprendizagem Baseada em Equipes</strong> ou <strong>Times</strong>, do inglês <em>Team Based Learning</em> (TBL), é uma estratégia educacional que proporciona o trabalho em pequenos grupos, tendo como princípio a aprendizagem centrada no estudante. A TBL foi desenvolvida por Larry Michaelsen, nos anos 1970, e começou a ser utilizada por diversas escolas de Medicina, sendo, atualmente, utilizada em áreas diferentes.</p>
+          <p>Inicialmente, o professor organiza os educandos em grupos pequenos, cuja formação deve ser pensada para proporcionar heterogeneidade e coesão, não delegando essa função aos próprios alunos. Há aplicações da TBL com grupos entre três a 12 estudantes, mas o mais indicado, de modo geral, são equipes que tenham de cinco a sete integrantes (MICHAELSEN; SWEET, 2008; BOLLELA <em>et al.</em>, 2014). Após organizados os grupos, eles passarão pela primeira etapa, que é a de preparação individual pré-classe. Nela, realizarão o estudo individualizado dos conceitos com base em textos, vídeos, exercícios, simuladores, entre outros materiais.</p>
+          <p>A segunda etapa é a garantia de preparo, na qual é aplicado um procedimento bastante interessante, que se inicia por um teste individual com questões de múltipla escolha. Após a aplicação, os estudantes discutem as mesmas questões utilizadas no teste com o grupo, com o objetivo de chegarem a uma conclusão sobre as alternativas corretas, tendo que responder novamente o teste, mas agora não mais individualmente. A deliberação sobre as alternativas faz com que haja maior interação entre os participantes e ancoragem de conceitos. Para cada resposta assinalada, haverá um sistema para <em>feedback</em> automático, de modo que os alunos saibam se a alternativa escolhida é a correta. A seguir, é aberto um espaço de apelação, em que as equipes podem discordar sobre a resposta indicada pelo professor como correta. Por fim, o professor realiza seus comentários com base nas apelações recebidas.</p>
+          <p>A terceira etapa da TBL é a aplicação dos conceitos aprendidos nas etapas anteriores, sendo, geralmente, mais longa que as anteriores. Michaelsen sugere a utilização dos 4 S: <em>Significant </em>(problema significativo)<em>, Same problem </em>(mesmo problema)<em>, Specific choice </em>(escolha específica)<em> e Simultaneously report </em>(relatos simultâneos). Ou seja, os estudantes resolvem o mesmo problema que tenha significado e contexto, com respostas específicas e visíveis às demais equipes, e as respostas são mostradas simultaneamente.</p>
+          <p>A última etapa é a avaliação do processo de aprendizagem, no qual sugere-se que seja realizada uma avaliação entre pares, além dos resultados obtidos nos testes individual e em equipe que foram realizados na segunda etapa. Essa é uma metodologia em que, geralmente, observa-se engajamento, mas, para além disso, é uma pedagogia centrada no estudante, em que se dá importância às diferentes percepções dos educandos na construção do seu conhecimento, além do desenvolvimento de competências de trabalho em equipe (BOLLELA <em>et al.</em>, 2014; OLIVEIRA <em>et al.</em>, 2018).</p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t2-fig6.svg" width="841" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 8 - Metodologia TBL | Fonte: adaptada de Deon (2018, <em>on-line</em>).</p>
+        </div>
+        <div class="imagem-ilustrativa-centro"><img src="images/logo_trezentos_final.svg" loading="lazy" alt="" class="foto-ilustrativa"></div>
+        <div class="texto sem-espaco-bottom w-richtext">
+          <h2><strong>Trezentos</strong></h2>
+          <p>Uma metodologia ativa e colaborativa que resulta em melhora no engajamento e no rendimento nas avaliações é o Trezentos. Além disso, geralmente, tem-se o desenvolvimento de competências sociais, construindo empatia sincera por meio de um ambiente de colaboração. Com o Trezentos, tem-se uma redução na sensação de solidão e estudantes mais tranquilos nas avaliações de aprendizagem (FRAGELLI, 2015; FRAGELLI, 2019; MOREIRA; FRAGELLI, 2020).</p>
+          <p>A metodologia surgiu em 2013, em uma turma de Cálculo 1 dos cursos de Engenharia da Universidade de Brasília, mas, atualmente, é aplicada por diversos professores em diferentes áreas do conhecimento, desde a Educação Básica até o Ensino Superior, nas modalidades de ensino presencial e a distância. O Trezentos consiste em formar grupos potencialmente colaborativos com base em determinado procedimento, que utiliza o resultado de uma avaliação de aprendizagem e a quantidade de grupos a ser formada. Em cada um desses grupos, haverá estudantes com bom rendimento na avaliação (ajudantes) e alguns com baixo rendimento (ajudados). </p>
+          <p>O professor definirá metas a serem cumpridas pelos integrantes dos grupos em um prazo determinado. Após o cumprimento dessas metas, os educandos são reavaliados de formas distintas: os ajudados realizam uma nova avaliação de aprendizagem nos mesmos moldes da primeira avaliação; e os ajudantes são reavaliados de acordo com a ajuda oferecida aos ajudados do seu grupo e com a melhora no rendimento.</p>
+          <p>Existem possibilidades diferentes para a aplicação da metodologia, mas, neste texto, seguem as etapas detalhadas do Trezentos em seu formato original (FRAGELLI, 2019). A primeira delas é a criação de grupos, que são formados após a primeira avaliação de aprendizagem do curso, podendo ser prova escrita, prova oral, portfólio, projetos ou qualquer outro tipo de avaliação. Para a formação dos grupos, é aplicado o seguinte procedimento:</p>
+        </div>
+        <div data-hide="1" class="bloco-oi">
+          <div data-duration-in="300" data-duration-out="100" data-current="Tab 1" data-easing="ease" class="w-tabs">
+            <div class="w-tab-menu">
+              <a data-w-tab="Tab 1" class="tab-link-tabs vermelho w-inline-block w-tab-link w--current">
+                <div>1.º Passo</div>
+              </a>
+              <a data-w-tab="Tab 2" class="tab-link-tabs vermelho w-inline-block w-tab-link">
+                <div>2.º Passo</div>
+              </a>
+              <a data-w-tab="Tab 3" class="tab-link-tabs vermelho w-inline-block w-tab-link">
+                <div>3.º Passo</div>
+              </a>
+              <a data-w-tab="Tab 4" class="tab-link-tabs vermelho w-inline-block w-tab-link">
+                <div>4.º Passo</div>
+              </a>
+            </div>
+            <div class="tab-contents vermelho w-tab-content">
+              <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
+                <div class="rich-text-block-2 w-richtext">
+                  <p><br>Organização da lista de alunos por nota, da maior para a menor.</p>
+                </div>
+              </div>
+              <div data-w-tab="Tab 2" class="w-tab-pane">
+                <div class="w-richtext">
+                  <p>‍</p>
+                  <p>Definição de quantos grupos serão formados. São sugeridos grupos contendo cinco ou seis integrantes, entretanto, a depender da especificidade do contexto de aplicação, é possível trabalhar com grupos menores.</p>
+                </div>
+              </div>
+              <div data-w-tab="Tab 3" class="w-tab-pane">
+                <div class="w-richtext">
+                  <p>São escritos “1” no estudante que tirou a maior nota, “2” no segundo estudante e assim por diante até atingir a quantidade de grupos. Para os demais, é escrito em ordem decrescente, partindo do número de grupos até 1, repetindo essa mesma sequência até que todo estudante tenha definido o seu grupo. Os números especificam o grupo em que o estudante participará.</p>
+                </div>
+              </div>
+              <div data-w-tab="Tab 4" class="w-tab-pane">
+                <div class="w-richtext">
+                  <p>‍</p>
+                  <p>Os estudantes são agrupados com o mesmo número. Note que os grupos são mistos, com estudantes com bom e baixo rendimento na avaliação.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-topo-bottom w-richtext">
+          <p>Na segunda etapa, são definidas funções aos integrantes de cada grupo. Os estudantes que tiverem sido avaliados com nota igual ou superior a determinado valor serão os ajudantes, e os demais serão os ajudados. Esse valor depende da especificidade de cada curso, podendo ser a nota mínima para aprovação, a média das notas ou algum patamar que se deseja obter. É definido um líder para cada grupo, o qual será o ajudante responsável pela organização dos encontros e ficará atento à participação de todos. O líder é o estudante que obteve o maior rendimento do grupo.</p>
+        </div>
+        <p class="texto sem-espaco-topo-bottom"><span class="destaque-texto">É necessário tomar o devido cuidado com a denominação “ajudantes” e “ajudados”, pois não é a que melhor representa os participantes do método, haja vista que todos do grupo se ajudarão, mutuamente. </span>Contudo, essas denominações serão mantidas para melhor entendimento das atividades. Com relação ao “líder”, também é necessário que se tome cuidado no tratamento utilizado, para que o aluno que assuma tal função entenda como é um papel colaborativo. Destaca-se que, a cada avaliação de aprendizagem da disciplina, novos grupos serão formados, e quem era ajudante pode passar a ser ajudado e vice-versa. </p>
+        <div class="texto sem-espaco-topo-bottom w-richtext">
+          <p>Na terceira etapa, são definidas metas a serem desenvolvidas pelos educandos e em prazo determinado, que, geralmente, é de dez dias. São definidas metas individuais distintas para ajudantes e ajudados, sabendo que a motivação para a aprendizagem de ambas as funções é diferente. </p>
+          <p>Exemplos de metas estão descritos a seguir. Observe-os.</p>
+        </div>
+        <div data-hide="1" class="acoredeon">
+          <div class="acordeon-box-2">
+            <div class="acordeoni-item">
+              <div class="plus-wrap">
+                <div class="plus-l vermelho"></div>
+                <div class="plus vermelho"></div>
+              </div>
+              <div class="acoredeon-titulo-2 vermelho">Ajudados</div>
+            </div>
+            <div class="acordeon-conteudo">
+              <p class="acordeon-conteudo-texto">Resolução de listas de exercícios; resolução da avaliação anterior; e resolução da “prova dos ajudantes”.</p>
+            </div>
+          </div>
+          <div class="acordeon-box-2">
+            <div class="acordeoni-item">
+              <div class="plus-wrap">
+                <div class="plus-l vermelho"></div>
+                <div class="plus vermelho"></div>
+              </div>
+              <div class="acoredeon-titulo-2 vermelho">Ajudantes</div>
+            </div>
+            <div class="acordeon-conteudo">
+              <p class="acordeon-conteudo-texto">Resolução de desafios; e construção de uma lista de exercícios chamada de “prova dos ajudantes”.</p>
+            </div>
+          </div>
+          <div class="acordeon-box-2">
+            <div class="acordeoni-item">
+              <div class="plus-wrap">
+                <div class="plus-l vermelho"></div>
+                <div class="plus vermelho"></div>
+              </div>
+              <div class="acoredeon-titulo-2 vermelho">Todos</div>
+            </div>
+            <div class="acordeon-conteudo">
+              <p class="acordeon-conteudo-texto">Dois encontros presenciais com o grupo com, pelo menos, duas horas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-topo-bottom w-richtext">
+          <p>Outras atividades possíveis são aquelas que têm correlação com a utilização de ferramentas de apoio à ocorrência da aprendizagem significativa, como a construção de mapas conceituais, por exemplo. Pelas pesquisas realizadas, aproximadamente 70% dos estudantes declaram em depoimentos que “aprenderam a estudar” e seria uma boa medida explorar esse potencial ao elaborar as metas (FRAGELLI, 2019).</p>
+          <p>A quarta etapa é a aplicação de avaliações e escalas de nível de ajuda. Desse modo, uma nova avaliação deve ser planejada após o prazo para o cumprimento das metas e, apesar de ser nos mesmos moldes da anterior, será uma avaliação distinta da primeira e somente será aplicada aos ajudados que cumpriram as metas. </p>
+          <p>Os ajudantes terão um aumento em seus rendimentos iniciais, considerando que estão atingindo um nível cognitivo mais complexo com relação aos conceitos da disciplina. Além disso, desenvolvem habilidades, competências e atitudes que, provavelmente, não foram avaliadas anteriormente. Para isso, é necessário avaliar o nível de ajuda oferecido ao grupo e aplicar escalas de Likert com cinco pontos, variando de um (ajudou/ajudei nada) até cinco (ajudou/ajudei muito).</p>
+        </div>
+        <p class="texto sem-espaco-topo-bottom">A quinta e última etapa da metodologia é a reavaliação dos estudantes. Os ajudados realizaram duas avaliações para determinada temática, chamadas aqui de de <strong>P1</strong><span class="subescrito"><strong>A</strong></span> e <strong>P1</strong><span class="subescrito"><strong>B</strong></span>. <br><br>O rendimento final será uma ponderação entre ambos os resultados. Um exemplo seria: P1₃₀₀ = 20% P1<span class="subescrito">A</span> + 80% P1<span class="subescrito">B</span>.<br><br>Os ajudantes só realizaram a P1A. Assim, seu resultado final será P1₃₀₀ = P1<span class="subescrito">A</span> + ajuda₃₀₀. O valor ajuda₃₀₀ é avaliado para cada par ajudante-ajudado, e é utilizado o maior deles. <br><br>O quadro a seguir facilita a descoberta desse valor em um contexto no qual a maior nota possível seja de 10 pontos, em que N1 e N2 são as notas que definem ajudantes e uma nota considerada alta, respectivamente. Por exemplo, se o valor utilizado para definir ajudantes for igual a 5, então será possível definir N1=5 e N2=7.<br>‍</p>
+        <div data-nao-quebra="1" class="tabela">
+          <div class="tabela-embed w-embed">
+            <style>
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid #e1e9e9;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 14px;
+    text-align: left;
+}
+table tr:nth-child(even) {
+    background-color: #f3fdff;
+}
+table tr:nth-child(odd) {
+   background-color: #e6f5ff;
+}
+table th {
+    background-color: #263238;
+    color: white;
+}
+</style>
+            <!--  inserir tabela a partir daqui  -->
+            <table>
+              <tr>
+                <td rowspan="2"><strong>Melhora do estudante ajudado</strong></td>
+                <td colspan="5"><strong>N&iacute;vel de ajuda</strong></td>
+              </tr>
+              <tr>
+                <td><strong>1</strong></td>
+                <td><strong>2</strong></td>
+                <td><strong>3</strong></td>
+                <td><strong>4</strong></td>
+                <td><strong>5</strong></td>
+              </tr>
+              <tr>
+                <td>Melhora de 0 a 1</td>
+                <td>0,00</td>
+                <td>0,25</td>
+                <td>0,25</td>
+                <td>0,50</td>
+                <td>0,50</td>
+              </tr>
+              <tr>
+                <td>Melhora maior do que 1 para uma nota final inferior a N1</td>
+                <td>0,00</td>
+                <td>0,25</td>
+                <td>0,25</td>
+                <td>0,50</td>
+                <td>0,50</td>
+              </tr>
+              <tr>
+                <td>Melhora maior do que 1 para uma nota entre N1 e N2</td>
+                <td>0,00</td>
+                <td>0,25</td>
+                <td>0,50</td>
+                <td>0,75</td>
+                <td>1,00</td>
+              </tr>
+              <tr>
+                <td>Nota final igual ou superior a N2</td>
+                <td>0,00</td>
+                <td>0,25</td>
+                <td>0,50</td>
+                <td>1,00</td>
+                <td>1,50</td>
+              </tr>
+            </table>
+          </div>
+          <p class="legenda-fonte">Quadro 1 - Aumento de nota do aluno ajudante | Fonte: adaptado de Fragelli (2019).</p>
+        </div>
+        <div class="texto sem-espaco-topo-bottom w-richtext">
+          <p>Para descobrir o nível de ajuda de determinado ajudante com relação a um ajudado, calcule a média arredondada com os valores colocados para ambos, por meio das escalas de avaliação do nível de ajuda. A figura a seguir exibe um resumo das etapas do Trezentos.</p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t2-fig7_1.svg" width="849" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 9 - Diagrama do método Trezentos | Fonte: adaptada de Fragelli (2019).</p>
+        </div>
+        <div class="texto sem-espaco-topo-bottom w-richtext">
+          <h2><strong>Ferramentas digitais de interação</strong></h2>
+          <p>Agora, chegou o momento de conhecer algumas propostas de uso com ferramentas digitais em um contexto de metodologias colaborativas. Será apresentada uma breve introdução de cada ferramenta com <em>links</em> para tutoriais.</p>
+          <h3><strong>WhatsApp</strong></h3>
+          <p>O WhatsApp é um aplicativo multiplataforma que pode ser bastante útil no contexto educacional, pois proporciona interação rápida, síncrona e assíncrona, por meio de mensagens, chamadas de voz e de vídeo, e compartilhamento de diversas mídias.</p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t2-fig-wats.png" width="860" sizes="(max-width: 479px) 85vw, (max-width: 767px) 90vw, (max-width: 991px) 648px, 820px" srcset="images/t2-fig-wats-p-500.png 500w, images/t2-fig-wats-p-800.png 800w, images/t2-fig-wats-p-1080.png 1080w, images/t2-fig-wats.png 1360w" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 10 - Interface do WhatsApp Web | Fonte: WhatsApp ([2020], <em>on-line</em>).</p>
+        </div>
+        <div class="texto sem-espaco-topo-bottom w-richtext">
+          <p><strong>Uso da ferramenta para metodologias colaborativas</strong>: Uma das funcionalidades que o WhatsaApp oferece é a formação de grupos, que facilita a interação entre os participantes, a troca de mensagens e o compartilhando de descobertas. Além disso, é possível realizar chamadas de vídeo entre os integrantes do grupo.</p>
+          <h3><strong>Telegram</strong></h3>
+          <p>“O Telegram é um serviço de mensagens instantâneas baseado na nuvem. Está disponível para smartphones ou tablets, [...] computadores e também como Aplicação web” (WIKIPÉDIA, [2020], <em>on-line</em>). Os usuários podem fazer chamadas de vídeo, enviar mensagens e trocar fotos, vídeos e arquivos de qualquer tipo.</p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t2-fig-telegrampng.png" width="901" sizes="(max-width: 479px) 85vw, (max-width: 767px) 90vw, (max-width: 991px) 648px, 820px" srcset="images/t2-fig-telegrampng-p-500.png 500w, images/t2-fig-telegrampng-p-800.png 800w, images/t2-fig-telegrampng-p-1080.png 1080w, images/t2-fig-telegrampng.png 1432w" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 11 - Interface do Telegram Web | Fonte: Telegram ([2020],<em> on-line</em>).</p>
+        </div>
+        <div class="texto sem-espaco-topo-bottom w-richtext">
+          <p><strong>Uso da ferramenta para metodologias colaborativas</strong>: O Telegram é uma alternativa ao uso do WhatsApp com algumas vantagens, como a formação de grupos maiores para envio de mensagens por parte do docente, podendo enviar orientações gerais ou realizar perguntas do TBL, por exemplo. Caso queira, também é possível preservar o número de telefone nas mensagens enviadas.</p>
+        </div>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2"><img src="images/saiba-icone-trilha02.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Compartilhar o número de celular com uma grande quantidade de alunos pode causar situações indesejadas a muitos professores, principalmente quando se trata de manter a privacidade. Confira o vídeo disponível a seguir sobre como usar o Telegram para dar aulas a distância sem precisar fornecer o seu número aos estudantes. </p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://youtu.be/IbexW_Tb4qw" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-topo-bottom w-richtext">
+          <h3><strong>Trello</strong></h3>
+          <p>O <a href="https://trello.com/" target="_blank">Trello </a>é um aplicativo de gerenciamento de projetos que utiliza o paradigma Kanban. Os projetos são representados por quadros (os <em>boards</em>), que contêm listas com várias tarefas, as quais são representadas por meio de cartões (os <em>cards</em>). Estes podem ser movidos, copiados ou compartilhados entre as listas, de modo a alterar seu progresso.</p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t2-fig-trello.png" width="854" sizes="(max-width: 479px) 85vw, (max-width: 767px) 90vw, (max-width: 991px) 648px, 820px" srcset="images/t2-fig-trello-p-500.png 500w, images/t2-fig-trello-p-1080.png 1080w, images/t2-fig-trello.png 1871w" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 12 - Interface do Trello | Fonte:  Trello (2020, <em>on-line</em>).</p>
+        </div>
+        <div class="texto sem-espaco-topo-bottom w-richtext">
+          <p><strong>Uso da ferramenta para metodologias colaborativas</strong>: Uma possibilidade do Trello é a construção de quadros compartilhados, nos quais cada grupo pode ficar responsável por determinada lista, adicionando imagens, <em>links</em>, relatórios, vídeos e outros arquivos. O aspecto mais atrativo da ferramenta é a organização visual das atividades realizadas, que também podem ser acessadas pelos demais membros das outras equipes, sendo muito relevante para aplicações do método Trezentos.</p>
+        </div>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2"><img src="images/saiba-icone-trilha02.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>Para saber mais sobre como utilizar o Trello em suas aulas, assista ao vídeo “Ferramenta digitais para educação online: Trello”.</p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://youtu.be/oMD1xv3cWKE" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="texto sem-espaco-topo-bottom w-richtext">
+          <h3><strong>Google Classroom</strong></h3>
+          <p>
+            <a href="https://classroom.google.com/" target="_blank">Google Classroom</a> &quot;é um sistema de gerenciamento de conteúdo para escolas que procuram simplificar a criação, a distribuição e a avaliação de trabalhos. [...] É um serviço gratuito para escolas, organizações sem fins lucrativos e qualquer usuário que tenha uma Conta do Google pessoal.&quot; (GAED, [2020], <em>on-line</em>).
+          </p>
+        </div>
+        <div class="imagem-legenda"><img src="images/t2-fig-classroom.png" width="853" sizes="(max-width: 479px) 85vw, (max-width: 767px) 90vw, (max-width: 991px) 648px, 820px" srcset="images/t2-fig-classroom-p-500.png 500w, images/t2-fig-classroom-p-800.png 800w, images/t2-fig-classroom-p-1080.png 1080w, images/t2-fig-classroom-p-1600.png 1600w, images/t2-fig-classroom.png 1882w" alt="" class="imagem-conteudo">
+          <div class="div-block line-03"></div>
+          <p class="legenda-fonte">Figura 13 - Interface do Google Classroom | Fonte: Google Sala de Aula ([2020], <em>on-line</em>).</p>
+        </div>
+        <div class="texto sem-espaco-topo-bottom w-richtext">
+          <p><strong>Uso da ferramenta para metodologias colaborativas</strong>: Com o Google Classroom, é possível organizar as atividades colaborativas e incorporar elementos de avaliação como os <a href="https://www.google.com/intl/pt-BR/forms/about/">Formulários Google</a>. Também é possível organizar as etapas avaliativas tanto da TBL quanto do método Trezentos.</p>
+        </div>
+        <div class="box-trilha2">
+          <div class="box-conteudo-trilha2"><img src="images/saiba-icone-trilha02.svg" width="240" alt="saiba mais" class="img-icon-box">
+            <div class="container-box01">
+              <div class="columns-7 w-row">
+                <div class="column-8 w-col w-col-2"><img src="images/aqui-bg.svg" loading="lazy" width="90" alt="" class="quia"></div>
+                <div class="w-col w-col-10">
+                  <div class="container-box01">
+                    <div class="box-texto w-richtext">
+                      <p>O Google Classroom pode ser uma excelente alternativa para aperfeiçoar suas aulas. Para saber mais sobre como utilizá-lo, assista ao vídeo “Ferramentas digitais para educação online: Google Classroom”. </p>
+                    </div>
+                    <p class="legenda"><strong>Acesse o <em>link</em>: </strong>
+                      <a href="https://youtu.be/u2d8ZwpTAQQ" target="_blank" class="btn-box"><strong>Disponível aqui</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="audiolivro" class="forum-trilha">
+      <div class="container-13 w-container">
+        <h1 class="titulo-curso t2"><strong class="bold-text t2">fórum</strong></h1>
+        <div class="caixa-modelo2">
+          <div class="div-block line02"></div>
+          <div class="texto apresentacao w-richtext">
+            <h4><strong>Interatividade e compartilhamento para uma educação engajadora e relevante</strong></h4>
+            <p>No início desta Trilha, você refletiu sobre as mudanças de perfil dos estudantes em um mundo cada vez mais conectado e em transformação, e como tais mudanças têm configurado o processo de aprendizagem. Para dar conta delas, você conheceu a Teoria do <em>Flow</em> que, por meio da Psicologia Positiva, propõe a melhoria do engajamento em atividades do cotidiano e, em especial, da educação.</p>
+            <p>O atual cenário de mudanças sociais e educacionais exige métodos que promovam o aprendiz de passivo e depositário de conteúdo para, agora, ativo e responsável pela sua aprendizagem, encontrando seus caminhos com apoio dos próprios colegas e do professor. Por falar em professor, as estratégias pedagógicas conhecidas como metodologias ativas também mudam seu papel, de provedor e transmissor para facilitador e problematizador. Entre as metodologias ativas, algumas têm como objetivo promover a colaboração entre os estudantes em pequenos grupos e têm mostrado muita efetividade pelo senso de pertencimento que promovem no aprendiz.</p>
+            <p>Quer discutir um pouco mais sobre esse assunto? Acesse o fórum disponível a seguir!<br></p>
+          </div>
+          <a data-w-id="2969a265-26a5-fdfd-8722-e02f6e76f3ba" href="https://sthembrasil.instructure.com/courses/164/discussion_topics/315" target="_blank" class="btn-forum w-button">acessar fórum</a>
+          <div class="div-block line02"></div>
+        </div>
+      </div>
+    </div>
+    <div class="secao-s wf-section">
+      <div class="capa-topico">
+        <div class="container-5 w-container">
+          <h1 class="titulo-topico">Referências</h1>
+        </div>
+      </div>
+      <div class="w-container">
+        <div class="texto w-richtext">
+          <p>AUSUBEL, D. P. <strong>Educational Psychology</strong>: a cognitive view. Nova York: Holt, Rinehart and Winston, 1968.</p>
+          <p>BERGMANN, J.; SAMS, A. <strong>Flip Your Classroom</strong>: reach every student in every class every day. Eugene: ISTE, 2012.</p>
+          <p>BLOG MUNDO MAKER. Novos métodos de ensino: a teoria da sala de aula invertida e sua reinversão. 2020. Disponível em: <a href="https://www.mundomaker.cc/novos-mtodos-de-ensino-a-teoria-da-sala-de-aula-invertida-e-sua-reinverso/" target="_blank">https://www.mundomaker</a>. Acesso em: 29 set. 2020.</p>
+          <p>BOLLELA, V. R. <em>et al</em>. Aprendizagem baseada em equipes: da teoria à prática. <strong>Medicina</strong>, Ribeirão Preto, v. 47, n. 3, p. 293-300, 2014.</p>
+          <p>BURKE, B. <strong>Gamificar</strong>: como a gamificação motiva as pessoas a fazerem coisas. São Paulo: DVS Editora, 2015.</p>
+          <p>CARVALHO, R. <strong>Como funciona a sala de aula invertida</strong>? Edools. 16 maio 2018. Disponível em: <a href="https://www.edools.com/sala-de-aula-invertida/#:~:text=Com%20a%20sala%20de%20aula,desenvolver%20os%20assuntos%20mais%20importantes." target="_blank">https://www.edools.com/</a>. Acesso em: 29 set. 2020. </p>
+          <p>CASTELLS,  M. <strong>A Sociedade em Rede</strong>. 1 ed. São Paulo: Paz e Terra, 1996.</p>
+          <p>CSIKSZENTMIHALYI, M. <strong>A Descoberta do Fluxo</strong>. São Paulo: Rocco. 1999.</p>
+          <p>CSIKSZENTMIHALYI, M. <strong>Sobre o estado de Flow</strong>. 2004.  Disponível em: <a href="http://www.ted.com/talks/mihaly_csikszentmihalyi_on_flow" target="_blank">http://www.ted.com/</a>. Acesso em: 29 ago. 2020.</p>
+          <p>DICIO. Dicionário Online de Português. <strong>Pager</strong>. Porto: 7Graus, 2020. Disponível em: <a href="https://www.dicio.com.br/pager/" target="_blank">https://www.dicio.com.br/pager/</a>. Acesso em: 19 ago. 2020.</p>
+          <p>DOCHY, F. <em>et al</em>. Effects of Problem-Based Learning: A Meta-Analysis. <strong>Learning and Instruction</strong>, [<em>s. l.</em>], v. 13, p. 533-568, 2003.</p>
+          <p>DEWEY, J. <strong>Experiência e Educação</strong>: textos fundantes de educação. Petrópolis: Vozes, 2010.</p>
+          <p>FRAGELLI, R. R. Trezentos: aprendizagem ativa e colaborativa como uma alternativa ao problema da ansiedade em provas. <strong>Revista Eletrônica Gestão &amp; Saúde</strong>, Brasília, v. 6, p. 860-872, 2015.</p>
+          <p>FRAGELLI, R. R. <strong>Método Trezentos</strong>: aprendizagem ativa e colaborativa, para além do conteúdo. Porto Alegre: Penso, 2019.</p>
+          <p>FRAGELLI, R. R. Metodologia Eight: educação além do engajamento. Desafios da Educação. 16 dez. 2019. Disponível em: <a href="https://desafiosdaeducacao.grupoa.com.br/metodologia-eight/" target="_blank">https://desafiosdaeducacao</a>. Acesso em: 29 set. 2020. </p>
+          <p>FRAGELLI, R. R.; FRAGELLI, T. B. O. Trezentos: a dimensão humana do método. Curitiba: <strong>Revista Educar</strong>, n. 63, p. 253-265, 2017.</p>
+          <p>FRAGELLI, R. R.; FRAGELLI, T. B. O. Summaê: um espaço criativo para aprendizagem. <strong>Revista Diálogo Educacional</strong>, , v. 17, n</p>
+          <p>FRAGELLI, T. B. O; FRAGELLI, R. R. Método Trezentos: Uma experiência da aplicação na área da saúde. <strong>Educação, Ciência e Saúde</strong>, [<em>s. l.</em>], v. 3, n. 1, 2016.</p>
+          <p>GAED. Pacote Google. <strong>Grupo de Apoio às Estratégias Digitais (FEUSP)</strong>. [2020]. Disponível em: <a href="https://edisciplinas.usp.br/course/view.php?id=77016&amp;section=31">http://edisciplinas.usp.br</a>. Acesso em: 29 set. 2020.</p>
+          <p>GOOGLE SALA DE AULA. <strong>Google Classroom</strong>. 2020. Disponível em: <a href="https://classroom.google.com/h" target="_blank">https://classroom.google.com</a>. Acesso em: 29 set. 2020.</p>
+          <p>INOVAEH. <strong>Tutorial Padlet</strong>: Criando murais. São Carlos: Secretaria Geral de Educação a Distância da Universidade Federal de São Carlos, 2018. Disponível em: <a href="https://inovaeh.sead.ufscar.br/wp-content/uploads/2019/04/Tutorial-Padlet.pdf" target="_blank">https://inovaeh.sead.ufscar.br</a>. Acesso em: 29 set. 2020. </p>
+          <p>KAHOOT. <strong>Kahoot</strong>! [2020]. Disponível em: <a href="https://kahoot.com/" target="_blank">https://kahoot.com/</a>. Acesso em: 29 set. 2020. </p>
+          <p>MARTINS, A. R. Q. A <strong>Descoberta do FLOW na Educação</strong>: como a criatividade pode transformar a escola. Curitiba: Appris, 2019.</p>
+          <p>MENTIMETER. <strong>Mentimeter</strong>. [2020]. Disponível em: <a href="https://www.mentimeter.com/" target="_blank">https://www.mentimeter.com/</a>. Acesso em: 29 set. 2020. </p>
+          <p>MICHAELSEN, L. K.; SWEET, M. The essential elements of team‐based learning. <strong>New directions for teaching and learning</strong>, [<em>s. l.</em>], v. 2, n. 116, p. 7-27, 2008.</p>
+          <p>MOREIRA, M. A. <strong>A Teoria da aprendizagem significativa e sua implementação em sala de aula</strong>. Brasília: Editora UnB, 2006.</p>
+          <p>MOREIRA, M. G.; FRAGELLI, R. R.  O Método Trezentos sob a lente dos estudantes isolados. <em>In</em>: Fernanda F. N Insfran; Juliana C. Lopes. (org.). <strong>Educação Centrada em Estudantes</strong>: práticas e conversações. Curitiba: CRV, 2020, p. 53-64.</p>
+          <p>OLIVEIRA, B. L. C. A. de <em>et al</em>. Team-based learning como forma de aprendizagem colaborativa e sala de aula invertida com centralidade nos estudantes no processo ensino-aprendizagem. <strong>Revista Brasileira de Educação Médica</strong>, [<em>s. l.</em>], v. 42, n. 4, p. 86-95, 2018.</p>
+          <p>PADLET. <strong>Padlet</strong>. [2020]. Disponível em: <a href="https://padlet.com/" target="_blank">https://padlet.com/</a>. Acesso em: 29 set. 2020.</p>
+          <p>PINTO. O que é Peer Instruction e como aplicá-la? <strong>Lyceum</strong>. 1 abr. 2019. Disponível em: <a href="https://blog.lyceum.com.br/o-que-e-peer-instruction/" target="_blank">https://blog.lyceum.com.br/</a>. Acesso em: 29 set. 2020. </p>
+          <p>RIBEIRO, L. R. C. <strong>Aprendizagem Baseada em Problemas</strong>: uma experiência no ensino superior. São Carlos: EdUFSCar, 2008.</p>
+          <p>ROGERS, C. R.<strong> Liberdade para Aprender</strong>. 2. ed. Belo Horizonte: Interlivros, 1973.</p>
+          <p>STAHL, G.; KOSCHMANN, T.; SUTHERS, D. Computer-supported collaborative learning: An historical perspective. <em>In:</em> SAWYER, R. K.  (ed.). <strong>Cambridge handbook of the learning sciences</strong>. Cambridge: Cambridge University Press, 2006.</p>
+          <p>TELEGRAM. <strong>Telegram</strong>. 2020. Disponível em: <a href="https://web.telegram.org/#/login" target="_blank">https://web.telegram.org/#/login</a>. Acesso em: 29 set. 2020.  </p>
+          <p>TOFFLER, A. <strong>A Terceira Onda</strong>. 7. ed. Rio de Janeiro: Record, 1980.</p>
+          <p>TORRES, P. L.; ALCANTARA, P.; IRALA, E. A. F. Grupos de consenso: uma proposta de aprendizagem colaborativa para o processo de ensino-aprendizagem. <strong>Revista Diálogo Educacional</strong>, [<em>s. l.</em>], v. 4, n. 13, p. 129-145, 2004. </p>
+          <p>TRELLO. <strong>Trello</strong>. 2020. Disponível em: <a href="https://trello.com/" target="_blank">https://trello.com/</a>. Acesso em: 29 set. 2020.</p>
+          <p>WATKINS, J.; MAZUR, E. Retaining students in science, technology, engineering, and mathematics (STEM) majors. <strong>Journal of College Science Teaching</strong>, [<em>s. l.</em>], v. 42, n. 5, p. 36-41, 2013.</p>
+          <p>WHATSAPP. <strong>WhatsApp</strong>. 2020. Disponível em: <a href="https://www.whatsapp.com/" target="_blank">https://www.whatsapp.com/</a>. Acesso em: 29 set. 2020.</p>
+          <p>WIKIMEDIA COMMONS. <strong>Mihaly Csikszentmihalyi</strong>. 2010. Disponível em: <a href="https://commons.wikimedia.org/wiki/File:Mihaly_Csikszentmihalyi.jpg" target="_blank">https://commons.wikimedia.org/</a>. Acesso em: 28 set. 2020.</p>
+          <p>WIKIPEDIA. <strong>Kahoot</strong>. [2020]. Disponível em: <a href="https://pt.wikipedia.org/w/index.php?title=Especial:Pesquisar&amp;search=Kahoot&amp;ns0=1" target="_blank">https://pt.wikipedia.org/</a>. Acesso em: 29 set. 2020.</p>
+        </div>
+      </div>
+    </div>
+    <div id="inicio" class="secao-autores wf-section">
+      <div class="container-apresentacao w-container">
+        <div class="apresentacao-div video">
+          <div class="div-block-16 line02"></div>
+          <div class="div-block-21"><img src="images/unissaum.png" width="323" alt="" class="logo-sthem-modelo2"></div><img src="images/recapitulando.svg" loading="lazy" width="500" alt="" class="image-36">
+          <div class="imagem-legenda"><img src="images/info-t22x.png" width="901" sizes="(max-width: 479px) 81vw, (max-width: 767px) 87vw, (max-width: 991px) 608px, 775px" srcset="images/info-t22x-p-500.png 500w, images/info-t22x-p-1600.png 1600w, images/info-t22x-p-2000.png 2000w, images/info-t22x.png 3311w" alt="" class="imagem-conteudo"></div>
+          <div class="video-div">
+            <div style="padding-top:56.17021276595745%" class="video-2 w-video w-embed"><iframe class="embedly-embed" src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FlZG_Mmpd4mw%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DlZG_Mmpd4mw&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FlZG_Mmpd4mw%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></div><img src="images/player-click-video.svg" loading="lazy" width="180" alt="" class="image-37">
+          </div>
+          <div class="div-block-16 line02"></div>
+        </div>
+      </div>
+    </div>
+    <div class="section-final home t2 wf-section">
+      <div class="container-3 w-container">
+        <div class="div-block-5"></div>
+        <h3 class="texto-final">Parabéns! <br>Você finalizou a Trilha 2!</h3>
+        <p class="texto-final-avancar">Selecione o botão <strong>&quot;avançar&quot;  </strong>para prosseguir.</p>
+        <div class="btn-navegacao">
+          <div class="columns-3 w-row">
+            <div class="w-col w-col-6">
+              <a data-w-id="e1fd42e7-451c-0561-c126-f0a637793687" href="trilha1.html" class="button w-button">Voltar</a>
+            </div>
+            <div class="w-col w-col-6">
+              <a data-w-id="e1fd42e7-451c-0561-c126-f0a63779368a" href="trilha-3.html" class="button w-button">Avançar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rodape wf-section">
+    <div class="w-container">
+      <p class="paragraph-5">© <a href="https://www.sthembrasil.com/" target="_blank" class="link">STHEM Brasil</a> - Todos direitos reservados | Produzido por <a href="http://www.b42.com.br" target="_blank" class="link">B42</a>.</p>
+    </div>
+  </div>
+  <div class="glossario-popup">
+    <div class="glossario-t2-p1">
+      <div class="popup-notas">
+        <div class="d-13-icons-wrapper-2">
+          <a href="#" class="d-13-icon-wrapper w-inline-block">
+            <div data-w-id="c8fcacb5-f78a-f0f0-3fb6-e5b147662988" class="close-popup">
+              <div class="text-block-7">X</div>
+            </div>
+            <div class="d-13-border-2"></div>
+          </a>
+        </div>
+        <div class="div-block-23">
+          <div class="notas-text-box">
+            <div class="texto-branco popup w-richtext">
+              <h4><strong><em>Pager</em></strong></h4>
+              <p>Bíper; em especial, espécie de bíper que recebe mensagens, apresentando-as numa tela.<br><br>Fonte: Dicio (2020, on-line).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=60915f334482b04c3b8f1bb7" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+  <script type="text/javascript">
+    function mudarCSS(arquivoCss) {
+        //pega a tag do tipo <link que tenha o href que comece com o texto "./css/temas/theme"
+        var oldlink = document.querySelector('link[href^="css"]');
+        //Cria um novo elemento tag <link> e seta os atributos
+        var newlink = document.createElement("link");
+        newlink.setAttribute("rel", "stylesheet");
+        newlink.setAttribute("type", "text/css");
+        //seta o href (está numa variavel pq veio por parametro)
+        newlink.setAttribute("href", arquivoCss);
+        //faz o replace, tira o velho e coloca o novo.
+        document.querySelector('head').replaceChild(newlink, oldlink);
+    }
+    document.querySelector('#mudarTema').addEventListener("change", function() {
+        var basePathThemes = 'css/';
+        var arquivoCss = basePathThemes + 'trocar-pelo-nome-dosubdominio.css';
+        var texto = '';
+        if (this.checked) {
+            arquivoCss = basePathThemes + 'sthem-modo-noturno.css';
+            texto = '';
+        }
+        this.parentElement.closest(".toggle").querySelector('span').innerText = texto;
+        mudarCSS(arquivoCss);
+    });
+    document.querySelector('#mudarAltoContraste').addEventListener("change", function() {
+        var basePathThemes = 'css/';
+        var arquivoCss = basePathThemes + 'trocar-pelo-nome-dosubdominio.css';
+        var texto = '';
+        if (this.checked) {
+            arquivoCss = basePathThemes + 'sthem-alto-contraste.css';
+            texto = '';
+        }
+        this.parentElement.closest(".toggle").querySelector('span').innerText = texto;
+        mudarCSS(arquivoCss);
+    });
+</script>
+  <script src="https://s3.amazonaws.com/assets.b42.com.br/player/mediaelement-and-player.min.js"></script>
+  <script src="https://s3.amazonaws.com/assets.b42.com.br/player/plugins/speed/speed.min.js"></script>
+  <script src="https://s3.amazonaws.com/assets.b42.com.br/player/plugins/speed/speed-i18n.js"></script>
+  <script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    var mediaElements = document.querySelectorAll('audio'), i, total = mediaElements.length;
+    for (i = 0; i < total; i++) {
+      new MediaElementPlayer(mediaElements[i], {
+        pluginPath: './mediaelement',
+        features: ['playpause', 'current', 'progress', 'duration', 'speed', 'skipback', 'jumpforward', 'tracks','markers', 'volume', 'chromecast', 'ads', 'vast', 'contextmenu'],
+        startLanguage: 'pt'
+      });
+    }
+  });
+</script>
+</body>
+</html>
